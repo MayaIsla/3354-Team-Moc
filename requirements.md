@@ -3,6 +3,10 @@
 for Multifunction Calculator Application </h3>
 
 #### Definitions, Acronyms, and Abbreviations
+Word/phrase   | Meaning               
+--------------|----------------------
+should        | Desirable requirement
+**shall**     | Mandatory requirement
 
 #### Functional Requirements
 
