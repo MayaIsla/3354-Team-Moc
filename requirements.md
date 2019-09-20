@@ -19,6 +19,6 @@ shall     | Mandatory requirement
 
 ```
 2. The user shall be able to convert units.
-  2.1 The user shall be able to convert units between mass units.
+  2.1 The user shall be able to perform conversions between mass units.
 ```
 #### Use Case Diagram
