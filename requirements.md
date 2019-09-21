@@ -29,6 +29,7 @@ shall     | Mandatory requirement
 ```
 3. The user shall be able to perform basic arithmetic calculations.
   3.1 The user shall be able to add, subtract, multiply, and divide real numbers.
+  3.2 The user shall be able to use parentheses.
 ```
 
 #### Use Case Diagram
