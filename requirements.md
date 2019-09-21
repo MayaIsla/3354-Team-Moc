@@ -33,3 +33,5 @@ shall     | Mandatory requirement
 ```
 
 #### Use Case Diagram
+
+<img src="UML.jpg"/>
