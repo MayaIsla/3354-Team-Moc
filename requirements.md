@@ -34,4 +34,4 @@ shall     | Mandatory requirement
 
 #### Use Case Diagram
 
-<img style="width: 50%" src="UML.jpg"/>
+<img width"500px" src="UML.jpg"/>
