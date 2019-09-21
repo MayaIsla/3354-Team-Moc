@@ -32,6 +32,7 @@ shall     | Mandatory requirement
   3.2 The user shall be able to use parentheses.
   3.3 THe user shall be able to exponate numbers.
   3.4 The user shall be able to input operands and operators.
+  3.5 The user shall be able to perform multiple calculations.
 ```
 
 #### Use Case Diagram
