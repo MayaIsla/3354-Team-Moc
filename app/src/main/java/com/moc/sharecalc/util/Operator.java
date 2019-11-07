@@ -16,8 +16,4 @@ public interface Operator {
      * @return the arity of the operator
      */
     int getArity();
-
-
-    @Override
-    String toString();
 }

@@ -11,7 +11,6 @@ public enum Arity0Operator implements Operator {
 
     public int getArity() {return 0;}
     private int _priority;
-    private String _stringRepresentation;
     public int getPriority() {return _priority;}
     private Arity0Operator (int priority) {_priority = priority;}
 
