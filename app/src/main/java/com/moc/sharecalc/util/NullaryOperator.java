@@ -3,7 +3,7 @@ package com.moc.sharecalc.util;
 /**
  * Enum of operators with arity 0 (no arguments)
  */
-public enum Arity0Operator implements Operator {
+public enum NullaryOperator implements Operator {
     L_PAREN (OperatorPriorities.L_PAREN), // ( operator
     R_PAREN (OperatorPriorities.R_PAREN); // ) operator
 
@@ -12,6 +12,6 @@ public enum Arity0Operator implements Operator {
     public int getArity() {return 0;}
     private int _priority;
     public int getPriority() {return _priority;}
-    Arity0Operator (int priority) {_priority = priority;}
+    NullaryOperator(int priority) {_priority = priority;}
 
 }
