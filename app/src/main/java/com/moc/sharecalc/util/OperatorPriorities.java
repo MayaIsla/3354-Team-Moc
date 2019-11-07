@@ -25,9 +25,11 @@ class OperatorPriorities {
     static final int L_PAREN = -1; // Right parentheses
 
     /**
-     * Addition and subtraction priority
+     * Addition priority
+     * Note: there is no subtraction operator. Instead, subtraction is converted to
+     * addition with a negative number (e.g. 5-2 -> 5+(-2) ) to simplify parsing
      */
-    static final int ADDSUB = 1;
+    static final int ADD = 1;
 
     /**
      * Multiplication and division priority
