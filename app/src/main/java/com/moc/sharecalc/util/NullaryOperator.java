@@ -8,10 +8,16 @@ public enum NullaryOperator implements Operator {
     R_PAREN (OperatorPriorities.R_PAREN); // ) operator
 
 
-
-    public int getArity() {return 0;}
+    /**
+     * The priority of the operator
+     */
     private int _priority;
+
+    // See Operator interface
+    public int getArity() {return 0;}
     public int getPriority() {return _priority;}
+
+    // Private constructor to intialize a NullaryOperator with given priority
     NullaryOperator(int priority) {_priority = priority;}
 
 }
