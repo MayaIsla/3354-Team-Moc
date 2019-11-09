@@ -23,7 +23,7 @@ public class Expression {
      * @param expression An expression consisting of only operators and operands, no whitespace.
      * @return The expression with negation converted to explicit multiplication
      */
-    String makeNegationExplicit(String expression) {
+    static String makeNegationExplicit(String expression) {
 
         // Replace -sin, -cos, -(...), etc. with -1*sin, -1*cos, -1*(...), etc.
         // Regex breakdown: Selects a trig function or left parentheses preceded by a minus sign.
@@ -44,7 +44,7 @@ public class Expression {
      * @param expression An expression consisting of only operators and operands, no whitespace.
      * @return The expression with implicit multiplication converted to explicit multiplication
      */
-    String makeMultiplicationExplicit(String expression) {
+    static String makeMultiplicationExplicit(String expression) {
 
         // Replace 4sin, -3cos, 2(...), etc. with 4*sin, -3*cos, 2*(...), etc.
         //
@@ -69,7 +69,7 @@ public class Expression {
      * @param expression An expression consisting of only operators and operands, no whitespace.
      * @return The expression with subtraction converted to addition of a negative
      */
-    String makeSubtractionUseAddition(String expression) {
+    static String makeSubtractionUseAddition(String expression) {
 
         // For each right parentheses or number followed by a minus sign, insert a plus before
         // the minus sign. The minus sign will negate the operand that follows it.
@@ -88,7 +88,7 @@ public class Expression {
      * @param expression An expression consisting of only operators and operands, no whitespace.
      * @return The processed expression
      */
-    String preprocessExpression(String expression) {
+    static String preprocessExpression(String expression) {
         return makeSubtractionUseAddition(
                 makeMultiplicationExplicit(
                         makeNegationExplicit(expression)
