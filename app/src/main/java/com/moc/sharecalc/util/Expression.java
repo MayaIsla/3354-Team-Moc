@@ -1,7 +1,10 @@
 package com.moc.sharecalc.util;
 
-import java.util.Stack;
-import java.util.regex.Matcher;
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Expression {
@@ -95,4 +98,84 @@ public class Expression {
                 )
         );
     }
+
+    /**
+     * Given an expression string, return a list that contains Operators and Doubles (operands)
+     * in the order they appear in the string.
+     * PRECONDITION: Input string MUST be a valid expression (no whitespace, operands and operators
+     * only) and should be passed through preprocessExpression first.
+     * Values in the queue should be casted to Doubles and Operators.
+     *
+     * @param str A valid, preprocessed expression string
+     * @return A list of Operators and Double operands
+     */
+    static List<Token> getTokensFromString(String str) {
+        CharacterIterator it = new StringCharacterIterator(str);
+        Scanner doubleScanner = new Scanner(str);
+        List<Token> list = new LinkedList<>();
+
+        for (char ch = it.first(); ch != StringCharacterIterator.DONE; ch = it.next()) {
+            switch (ch) {
+                //Binary operators
+                case '+':
+                    list.add(new Token(BinaryOperator.ADD));
+                    break;
+                case '*':
+                    list.add(new Token(BinaryOperator.MULTIPLY));
+                    break;
+                case '/':
+                    list.add(new Token(BinaryOperator.DIVIDE));
+                    break;
+                case '^':
+                    list.add(new Token(BinaryOperator.EXPONENTIATE));
+                    break;
+
+                // Nullary operators
+                case '(':
+                    list.add(new Token(NullaryOperator.L_PAREN));
+                    break;
+                case (')'):
+                    list.add(new Token(NullaryOperator.R_PAREN));
+                    break;
+
+                //Unary (trig) operators
+                case ('c'): // cos
+                    if (it.next() != 'o' || it.next() != 's')
+                        throw new IllegalArgumentException("Expected 'cos'");
+                    else
+                        list.add(new Token(UnaryOperator.COS));
+                    break;
+                case ('s'): // sin
+                    if (it.next() != 'i' || it.next() != 'n')
+                        throw new IllegalArgumentException("Expected 'sin'");
+                    else
+                        list.add(new Token(UnaryOperator.SIN));
+                    break;
+                case ('t'): //tan
+                    if (it.next() != 'a' || it.next() != 'n')
+                        throw new IllegalArgumentException("Expected 'tan'");
+                    else
+                        list.add(new Token(UnaryOperator.TAN));
+                    break;
+                case (' '): //whitespace (illegal)
+                    throw new IllegalArgumentException("Whitespace not allowed in expression");
+
+                default: //expect number
+                    // first, extract it
+                    String extractedNumber = "";
+                    while (ch != StringCharacterIterator.DONE && (ch == '-' || ch == '.' || ch == 'E' || Character.isDigit(ch))) {
+                        // while there is still part of the number left to add
+                        extractedNumber += ch;
+                        ch = it.next();
+                    }
+                    it.previous();
+                    // went one character too far (i.e. the character after
+                    // the last character in the number)
+
+                    list.add(new Token(Double.parseDouble(extractedNumber)));
+            }
+        }
+        return list;
+    }
+
 }
