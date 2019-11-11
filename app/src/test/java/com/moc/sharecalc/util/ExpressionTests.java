@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ExpressionPreprocessingTest {
+class ExpressionTests {
 
     @ParameterizedTest
     @CsvSource({
