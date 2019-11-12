@@ -37,7 +37,7 @@ public enum UnaryOperator implements Operator {
     private int _priority;
 
     // See Operator interface
-    public int getArity() {return 0;}
+    public int getArity() {return 1;}
     public int getPriority() {return _priority;}
 
     // Private constructor to intialize a UnaryOperator with given priority

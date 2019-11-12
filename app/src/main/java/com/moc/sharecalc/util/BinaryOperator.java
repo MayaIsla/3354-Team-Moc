@@ -44,7 +44,7 @@ public enum BinaryOperator implements Operator {
     private int _priority;
 
     // See Operator interface
-    public int getArity() {return 0;}
+    public int getArity() {return 2;}
     public int getPriority() {return _priority;}
 
     // Private constructor to intialize a BinaryOperator with given priority
