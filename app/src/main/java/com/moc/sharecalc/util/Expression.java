@@ -175,6 +175,9 @@ public class Expression {
                     list.add(new Token(Double.parseDouble(extractedNumber)));
             }
         }
+        list.add(new Token(NullaryOperator.TERMINATOR));
+        // Add terminator ($) as last token to indicate
+        // end of expression
         return list;
     }
 

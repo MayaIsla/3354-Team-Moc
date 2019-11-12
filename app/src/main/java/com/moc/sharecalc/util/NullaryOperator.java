@@ -5,7 +5,8 @@ package com.moc.sharecalc.util;
  */
 public enum NullaryOperator implements Operator {
     L_PAREN (OperatorPriorities.L_PAREN), // ( operator
-    R_PAREN (OperatorPriorities.R_PAREN); // ) operator
+    R_PAREN (OperatorPriorities.R_PAREN), // ) operator
+    TERMINATOR (OperatorPriorities.TERMINATOR); // Final token in valid expression that indicates end
 
 
     /**

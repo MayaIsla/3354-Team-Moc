@@ -61,30 +61,27 @@ class ExpressionTests {
 
         @Test
         void trigTest() {
-            List<Token> tokens = Expression.getTokensFromString("cos");
-            assertEquals(tokens.size(), 1);
-            assertEquals(tokens.get(0).getOperator(), UnaryOperator.COS);
+            Iterator<Token> it =  Expression.getTokensFromString("cos").iterator();
+            assertEquals(it.next().getOperator(), UnaryOperator.COS);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
         }
 
         @Test
         void basicOperandTest() {
-            List<Token> tokens = Expression.getTokensFromString("5");
-            assertEquals(tokens.size(), 1);
-            assertEquals(tokens.get(0).getOperand(), 5);
+            Iterator<Token> it =  Expression.getTokensFromString("5").iterator();
+            assertEquals(it.next().getOperand(), 5);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
         }
 
-        @Test
-        void fractionalOperandTest() {
-            List<Token> tokens = Expression.getTokensFromString(".2");
-            assertEquals(tokens.size(), 1);
-            assertEquals(tokens.get(0).getOperand(), .2);
-        }
 
         @Test
         void complicatedOperandTest() {
-            List<Token> tokens = Expression.getTokensFromString("-5.2E-3");
-            assertEquals(tokens.size(), 1);
-            assertEquals(tokens.get(0).getOperand(), -5.2E-3);
+            Iterator<Token> it =  Expression.getTokensFromString("-5.2E-3").iterator();
+            assertEquals(it.next().getOperand(), -5.2E-3);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
         }
 
         @Test
@@ -93,6 +90,7 @@ class ExpressionTests {
             assertEquals(it.next().getOperand(), 5);
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperand(), -2);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
 
@@ -110,6 +108,7 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), UnaryOperator.SIN);
             assertEquals(it.next().getOperator(), UnaryOperator.COS);
             assertEquals(it.next().getOperator(), UnaryOperator.TAN);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
 
@@ -125,6 +124,7 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
             assertEquals(it.next().getOperand(), 4);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
 
@@ -151,6 +151,7 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
             assertEquals(it.next().getOperand(), 9);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
 

@@ -4,6 +4,14 @@ package com.moc.sharecalc.util;
  * A common place for priorities of each operator
  */
 class OperatorPriorities {
+
+    /**
+     * The terminator operator ($) will always be the last token in a valid expression
+     * to indicate the end. It has the lowest priority to force all remaining operations
+     * to execute before thee end result is returned
+     */
+    static final int TERMINATOR = -3;
+
     /**
      * Right parentheses priority
      * <p>
