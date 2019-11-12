@@ -16,9 +16,6 @@ public class Expression {
     // Uses non-capturing groups
     static final private String RE_TRIG = "(?:sin)|(?:cos)|(?:tan)";
 
-    // Capturing group regular expression to match the end of any number
-    // (not necessarily the full number)
-    static final private String RE_NUM_CAPTURE = "([0-9.])";
 
     /**
      * Refactor an expression string to make negation explicit
@@ -49,18 +46,21 @@ public class Expression {
      */
     static String makeMultiplicationExplicit(String expression) {
 
+
         // Replace 4sin, -3cos, 2(...), etc. with 4*sin, -3*cos, 2*(...), etc.
         //
         // Regex breakdown: Selects a trig function or left parentheses preceded by a number.
         //
-        // RE_NUM_CAPTURE   Capture group to capture the (end of the) number
+        // (                Beginning of first capture grouo
+        //     [0-9.)]      Capture a digit or dot (i.e. end of number) or right parenthesis (e.g. end of nested expression)
+        // )                End of first capture group
         // (                Beginning of second capture group
         //      RE_LPAREN   Left parentheses
         //      |           Or
         //      RE_TRIG     Any trig function
         // )                End of capture group
         //
-        final Pattern implicitMult = Pattern.compile(RE_NUM_CAPTURE + "(" + RE_LPAREN + "|" + RE_TRIG + ")");
+        final Pattern implicitMult = Pattern.compile("([0-9.)])" + "(" + RE_LPAREN + "|" + RE_TRIG + ")");
         return implicitMult.matcher(expression)
                 .replaceAll("$1*$2");
     }
