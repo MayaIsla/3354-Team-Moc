@@ -50,5 +50,19 @@ public class Token {
             return _operandValue;
     }
 
+    /**
+     * Returns whether the stored token is an operator
+     * @return whether the stored token is an operator
+     */
+    boolean isOperator() {
+        return _isOperator;
+    }
 
+    /**
+     * Returns whether the stored token is an operand (double)
+     * @return whether the stored token is an operator
+     */
+    boolean isOperand() {
+        return !_isOperator; // if not an operator, must be an operand
+    }
 }
