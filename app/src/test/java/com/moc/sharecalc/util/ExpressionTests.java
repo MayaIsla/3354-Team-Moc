@@ -49,7 +49,8 @@ class ExpressionTests {
     @ParameterizedTest
     @CsvSource({
             "10-2sin3,10+-2*sin3",
-            "8*2-4(1+3),8*2+-4*(1+3)"
+            "8*2-4(1+3),8*2+-4*(1+3)",
+            "-.5(3+6)cos0,-.5*(3+6)*cos0"
     })
     void preprocessExpression(String input, String expectedOutput) {
         assertEquals(expectedOutput, Expression.preprocessExpression(input));
@@ -155,5 +156,21 @@ class ExpressionTests {
             assertFalse(it.hasNext());
         }
 
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "2+3,5",
+            "3*4,12",
+            "5-2,3",
+            "1/2,0.5",
+            "cos0,1",
+            "5/2cos0,2.5",
+            "-.5(3+6),-4.5",
+            "-.5(3+6)cos0,-4.5",
+            "sin(-cos0/2),-0.479425538604203"
+    })
+    void evaluationTests(String expression, Double result) {
+        assertEquals(result, Expression.evaluate(expression));
     }
 }
