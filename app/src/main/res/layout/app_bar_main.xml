@@ -21,6 +21,17 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
+    
+     <TextView
+        android:id="@+id/toolbar"
+        android:layout_above="@+id/answer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|right"
+        android:hint=" 0"
+        android:scrollbars="vertical"
+        android:textSize="40sp" />
+        android:padding="15dp"
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
