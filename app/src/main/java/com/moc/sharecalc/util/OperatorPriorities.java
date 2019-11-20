@@ -53,4 +53,12 @@ class OperatorPriorities {
      * Trig functions (sin, cos, etc.) priority
      */
     static final int TRIG = 4;
+
+
+
+    // Priorities for bitwise operators
+    static final int OR = 1; // Bitwise OR (|)
+    static final int XOR = 2; // Bitwise XOR (^)
+    static final int AND = 3; // Bitwise AND (&)
+    static final int BITSHIFT = 4; // Bitshifts (<<, >>)
 }

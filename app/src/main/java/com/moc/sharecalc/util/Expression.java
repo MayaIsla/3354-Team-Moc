@@ -132,6 +132,30 @@ public class Expression {
                     list.add(new Token(BinaryOperator.EXPONENTIATE));
                     break;
 
+                // Bitwise operators
+                case '⊕':
+                    list.add(new Token(BinaryOperator.XOR));
+                    break;
+                case '&':
+                    list.add(new Token(BinaryOperator.AND));
+                    break;
+                case '|':
+                    list.add(new Token(BinaryOperator.OR));
+                    break;
+                case '<':  // <<
+                    if (it.next() != '<')
+                        throw new IllegalArgumentException("Expected '<<'");
+                    else
+                        list.add(new Token(BinaryOperator.SHIFTL));
+                    break;
+                case '>':  // >>
+                    if (it.next() != '>')
+                        throw new IllegalArgumentException("Expected '>>'");
+                    else
+                        list.add(new Token(BinaryOperator.SHIFTR));
+                    break;
+
+
                 // Nullary operators
                 case '(':
                     list.add(new Token(NullaryOperator.L_PAREN));
@@ -165,7 +189,9 @@ public class Expression {
                 default: //expect number
                     // first, extract it
                     String extractedNumber = "";
-                    while (ch != StringCharacterIterator.DONE && (ch == '-' || ch == '.' || ch == 'E' || Character.isDigit(ch))) {
+                    while (ch != StringCharacterIterator.DONE && (ch == 'b' || ch == 'o' || ch == 'x' // Base indicator (e.g. in 0x...)
+                            || (ch >= 'A' && ch <= 'F') // hex A-F
+                            || ch == '-' || ch == '.' || ch == 'E' || Character.isDigit(ch))) {
                         // while there is still part of the number left to add
                         extractedNumber += ch;
                         ch = it.next();
@@ -174,7 +200,38 @@ public class Expression {
                     // went one character too far (i.e. the character after
                     // the last character in the number)
 
-                    list.add(new Token(Double.parseDouble(extractedNumber)));
+                    if (extractedNumber.length() > 2) // Possibility of it being 0x..., 0b..., etc.
+                    {
+                        String possibleBaseIndicator = extractedNumber.substring(0,2);
+                        String restOfString = extractedNumber.substring(2);
+
+                        if (possibleBaseIndicator.equals("0b")) //binary
+                        {
+                            // Parse everything after the 0b as a binary integer, then cast to double
+                            list.add(new Token((double) Integer.parseInt(restOfString, 2)));
+                        }
+                        else if (possibleBaseIndicator.equals("0o")) //octal
+                        {
+                            list.add(new Token((double) Integer.parseInt(restOfString, 8)));
+                        }
+                        else if (possibleBaseIndicator.equals("0x")) //hexadecimal
+                        {
+                            list.add(new Token((double) Integer.parseInt(restOfString, 16)));
+                        }
+                        else // decimal
+                        {
+                            // Interpret the entire string as a double
+                            list.add(new Token(Double.parseDouble(extractedNumber)));
+                        }
+                    }
+                    else
+                    {
+                        // if the number string is 2 characters or fewer, it cannot be a valid non-decimal number
+                        // so parse it as a double
+                        list.add(new Token(Double.parseDouble(extractedNumber)));
+                    }
+
+
             }
         }
         list.add(new Token(NullaryOperator.TERMINATOR));
@@ -186,7 +243,8 @@ public class Expression {
     /**
      * Internal function to evaluate an expression in the form of a token list.
      * Expression must be valid and preprocessed (i.e. no implicit multiplication or negation)
-      * @param tokenList a list of tokens in the same order (i.e. left to right) as the expression
+     *
+     * @param tokenList a list of tokens in the same order (i.e. left to right) as the expression
      * @return the result of the computation
      * @throws Exception an internal error from trying to evaluate an invalid input
      */
@@ -205,29 +263,23 @@ public class Expression {
             {
                 Operator op = tok.getOperator();
 
-                if (op == NullaryOperator.L_PAREN)
-                {
+                if (op == NullaryOperator.L_PAREN) {
                     // Always push on left parentheses
                     operatorStack.push(op);
-                }
-                else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority())
-                {
+                } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
                     // Always add Operators of higher priority so that they are evaluated (pushed off) first
                     // and also add if there are no Operators on the stack
                     operatorStack.push(op);
-                }
-                else // Operator has lower or equal priority than the head of the stack
+                } else // Operator has lower or equal priority than the head of the stack
                 {
                     // Pop and evaluate while the operator has lower prcedence than the
                     // head of the stack
 
-                    while (!operatorStack.empty() && op.getPriority() <= operatorStack.peek().getPriority())
-                    {
+                    while (!operatorStack.empty() && op.getPriority() <= operatorStack.peek().getPriority()) {
                         // Pop off the operator on the head of the stack (which has greater priority) and execute it.
                         Operator priorityOp = operatorStack.pop();
 
-                        if (priorityOp.getArity() == 2)
-                        {
+                        if (priorityOp.getArity() == 2) {
                             // Get the rightmost argument (which was added second)
                             Double rArg = operandStack.pop();
                             // Get the leftmost argument (which was added first)
@@ -236,9 +288,7 @@ public class Expression {
                             // Push result on to stack
                             Double result = ((BinaryOperator) priorityOp).operate(lArg, rArg);
                             operandStack.push(result);
-                        }
-                        else if (priorityOp.getArity() == 1)
-                        {
+                        } else if (priorityOp.getArity() == 1) {
                             // Get the argument to operate on
                             Double arg = operandStack.pop();
 
@@ -263,8 +313,7 @@ public class Expression {
                     // We are done if the only thing on the stack now is the terminator.
                     // Note that if there is anything else on the stack, the input was invalid.
                     // There also should only be only 1 operand on the operand stack, i.e. the result
-                    if (op == NullaryOperator.TERMINATOR)
-                    {
+                    if (op == NullaryOperator.TERMINATOR) {
                         if (operatorStack.size() == 1 && operandStack.size() == 1)
                             return operandStack.pop();
                         else
@@ -284,6 +333,7 @@ public class Expression {
      * preprocess it.
      * Expression may not have any whitespace and must be an otherwise valid mathematical
      * expression using only the supported operators.
+     *
      * @param expression The string expression to evaluate
      * @return the result of the evaluation of the expression
      * @throws IllegalArgumentException Thrown if the expression is invalid
