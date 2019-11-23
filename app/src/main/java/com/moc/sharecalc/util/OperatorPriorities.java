@@ -55,6 +55,13 @@ class OperatorPriorities {
     static final int NAMED_FUNCTION = 4;
 
 
+    /**
+     * Factorial priority
+     * Note that this value is not actually used in runtime because of how
+     * the factorial operator is processed. See the documentation for Factorial
+     * in UnaryOperator
+     */
+    static final int FACTORIAL = 5;
 
     // Priorities for bitwise operators
     static final int OR = 1; // Bitwise OR (|)

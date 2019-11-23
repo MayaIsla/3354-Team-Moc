@@ -35,6 +35,38 @@ public enum UnaryOperator implements Operator {
         // log_2(x) = log x / log 2
         @Override
         public double operate(double param1) { return Math.log(param1) / Math.log(2); }
+    },
+    /**
+     * The factorial operator is special in that unlike other functions like sin, it comes after
+     * the operand it acts on. Hence, whenever we are evaluating an expression and we encounter a
+     * facotrial, we immediately pop the top of the operand stack and evaluate the factorial, rather
+     * than push the operator on to the stack like we do with other operators.
+     */
+    FACTORIAL (OperatorPriorities.FACTORIAL) {
+        @Override
+        public double operate(double param1) {
+            return factorial(param1);
+        }
+
+        /**
+         * Returns the factorial of the floor of a number.
+         * Internal function. Can be tested via FACTORIAL.operate(x)
+         * @param x A non-negative real
+         * @return ⌊x⌋!
+         */
+        private double factorial(double x) {
+            if (x < 0)
+                throw new IllegalArgumentException();
+            else if (x == 0)
+                return 1;
+            else {
+                int roundedX = (int) x;
+                double accumulator = 1;
+                for (int i=2; i<=roundedX; ++i)
+                    accumulator *= i;
+                return accumulator;
+            }
+        }
     };
 
 

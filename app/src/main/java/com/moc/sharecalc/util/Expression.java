@@ -164,7 +164,10 @@ public class Expression {
                     list.add(new Token(NullaryOperator.R_PAREN));
                     break;
 
-                //Unary (trig) operators
+                //Unary operators
+                case ('!'):
+                    list.add(new Token(UnaryOperator.FACTORIAL));
+                    break;
                 case ('c'): // cos
                     if (it.next() != 'o' || it.next() != 's')
                         throw new IllegalArgumentException("Expected 'cos'");
@@ -266,10 +269,36 @@ public class Expression {
                 if (op == NullaryOperator.L_PAREN) {
                     // Always push on left parentheses
                     operatorStack.push(op);
+                } else if (op == UnaryOperator.FACTORIAL) {
+                    // Special case: Factorial should always be evaluated immediately (since it
+                    // follows the operand instead of precedes it) instead of being pushed on to
+                    // the operator stack.
+                    Double operand = operandStack.pop();
+                    Double result = UnaryOperator.FACTORIAL.operate(operand);
+                    operandStack.push(result);
                 } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
                     // Always add Operators of higher priority so that they are evaluated (pushed off) first
                     // and also add if there are no Operators on the stack
-                    operatorStack.push(op);
+
+                    // Note the special case: there are no operators in the expression, only the terminator
+                    // This case can only occur when there are only factorial operators because
+                    // they skip the operator stack and operate immediately when they are encountered
+                    // In this case when we reach the terminator we should just have one operand on the
+                    // operand stack which should be the result
+
+                    if (op == NullaryOperator.TERMINATOR)
+                    {
+                        if (operandStack.size() != 1)
+                        {
+                            throw new IllegalArgumentException();
+                        }
+                        else
+                        {
+                            return operandStack.pop();
+                        }
+                    } else {
+                        operatorStack.push(op);
+                    }
                 } else // Operator has lower or equal priority than the head of the stack
                 {
                     // Pop and evaluate while the operator has lower prcedence than the

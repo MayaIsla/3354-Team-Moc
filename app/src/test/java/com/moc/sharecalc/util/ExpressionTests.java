@@ -114,13 +114,14 @@ class ExpressionTests {
 
         @Test
         void operatorsTest() {
-            Iterator<Token> it = Expression.getTokensFromString("+*/^()sincostan").iterator();
+            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostan").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
             assertEquals(it.next().getOperator(), BinaryOperator.DIVIDE);
             assertEquals(it.next().getOperator(), BinaryOperator.EXPONENTIATE);
             assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
+            assertEquals(it.next().getOperator(), UnaryOperator.FACTORIAL);
             assertEquals(it.next().getOperator(), UnaryOperator.SIN);
             assertEquals(it.next().getOperator(), UnaryOperator.COS);
             assertEquals(it.next().getOperator(), UnaryOperator.TAN);
@@ -184,6 +185,46 @@ class ExpressionTests {
         }
 
     }
+
+    @Nested
+    class FactorialTests {
+
+        @ParameterizedTest
+        @CsvSource({
+                "0,1",
+                "1,1",
+                "3,6",
+                "5,120"
+        })
+        void factorialOperationTests(Double input, Double output)
+        {
+            assertEquals(output, UnaryOperator.FACTORIAL.operate(input));
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "-1",
+                "-5"
+        })
+        void factorialOperationThrowTests(Double input)
+        {
+            assertThrows(IllegalArgumentException.class, () -> UnaryOperator.FACTORIAL.operate(input));
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "0!,1",
+                "3!,6",
+                "4!,24",
+                "2*4!,48",
+                "4!*2,48",
+                "3+4!+1,28"
+        })
+        void factorialExpressionTests(String expression, Double result) {
+            assertEquals(result, Expression.evaluate(expression));
+        }
+    }
+    
 
     @ParameterizedTest
     @CsvSource({
