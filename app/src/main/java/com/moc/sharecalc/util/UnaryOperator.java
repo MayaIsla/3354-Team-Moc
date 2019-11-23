@@ -4,19 +4,19 @@ package com.moc.sharecalc.util;
  * Enum of operators with arity 0 (no arguments)
  */
 public enum UnaryOperator implements Operator {
-    SIN (OperatorPriorities.TRIG) {
+    SIN (OperatorPriorities.NAMED_FUNCTION) {
         @Override
         public double operate(double param1) {
             return Math.sin(param1);
         }
     },
-    COS (OperatorPriorities.TRIG) {
+    COS (OperatorPriorities.NAMED_FUNCTION) {
         @Override
         public double operate(double param1) {
             return Math.cos(param1);
         }
     },
-    TAN (OperatorPriorities.TRIG) {
+    TAN (OperatorPriorities.NAMED_FUNCTION) {
         @Override
         public double operate(double param1) {
             return Math.tan(param1);

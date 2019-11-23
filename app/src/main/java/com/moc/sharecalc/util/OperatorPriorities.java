@@ -50,9 +50,9 @@ class OperatorPriorities {
     static final int EXP = 3;
 
     /**
-     * Trig functions (sin, cos, etc.) priority
+     * Trig functions (sin, cos, etc.) and log functions (log, ln, lg) priority
      */
-    static final int TRIG = 4;
+    static final int NAMED_FUNCTION = 4;
 
 
 
