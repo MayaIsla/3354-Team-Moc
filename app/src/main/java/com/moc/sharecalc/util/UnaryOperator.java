@@ -21,6 +21,20 @@ public enum UnaryOperator implements Operator {
         public double operate(double param1) {
             return Math.tan(param1);
         }
+    },
+    LOG_10(OperatorPriorities.NAMED_FUNCTION) { // Log base 10
+        @Override
+        public double operate(double param1) { return Math.log10(param1); }
+    },
+    LOG_E(OperatorPriorities.NAMED_FUNCTION) { // Log base e / natural log
+        @Override
+        public double operate(double param1) { return Math.log(param1); }
+    },
+    LOG_2(OperatorPriorities.NAMED_FUNCTION) { // Log base 2
+        // Using the identity log_b(a) = log a / log b,
+        // log_2(x) = log x / log 2
+        @Override
+        public double operate(double param1) { return Math.log(param1) / Math.log(2); }
     };
 
 
