@@ -32,8 +32,16 @@ class UnitConversionTests {
 
                 Arguments.of(55, Unit.KELVIN, -218.5, Unit.CELSIUS),
                 Arguments.of(55, Unit.KELVIN, -360.7, Unit.FAHRENHEIT),
-                Arguments.of(55, Unit.KELVIN, 55, Unit.KELVIN)
-        );
+                Arguments.of(55, Unit.KELVIN, 55, Unit.KELVIN),
+
+                Arguments.of(55, Unit.METERS, 55, Unit.METERS),
+                Arguments.of(55, Unit.METERS, 55E2, Unit.CENTIMETERS),
+                Arguments.of(55, Unit.FEET, 660, Unit.INCHES),
+                Arguments.of(55E-8, Unit.LIGHTSECONDS, 1.803E2, Unit.YARDS),
+                Arguments.of(55E-5, Unit.MILES, 8.851E2, Unit.MILLIMETERS),
+                Arguments.of(55E-5, Unit.DECAMETERS, 5500, Unit.MICROMETERS)
+
+                );
     }
 
 }
