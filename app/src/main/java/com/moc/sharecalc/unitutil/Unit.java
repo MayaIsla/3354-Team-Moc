@@ -129,8 +129,8 @@ public enum Unit {
         {
             throw new IllegalArgumentException();
         } else {
-            return (amount / _baseFactor) // first convert to base unit
-                    * toUnit._baseFactor; // then scale to the new unit
+            return (amount * _baseFactor) // first convert to base unit
+                    / toUnit._baseFactor; // then scale to the new unit
         }
     }
 
