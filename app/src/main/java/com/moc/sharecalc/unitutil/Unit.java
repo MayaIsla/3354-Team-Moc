@@ -66,9 +66,9 @@ public enum Unit {
             switch (toUnit) {
                 case CELSIUS: // trivial, same unit
                     return amount;
-                case KELVIN:
+                case KELVIN: // C -> K
                     return amount + C_TO_K__SHIFT;
-                case FAHRENHEIT:
+                case FAHRENHEIT: // C -> F
                     return (amount * C_TO_F__SCALE) + C_TO_F__SHIFT;
             }
             // If exhausted every valid option

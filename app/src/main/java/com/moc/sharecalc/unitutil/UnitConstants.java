@@ -16,5 +16,5 @@ public class UnitConstants {
     static final double C_TO_K__SHIFT = 273.15;
     static final double C_TO_F__SHIFT = 32;
     // B. Scales
-    static final double C_TO_F__SCALE = 9/5;
+    static final double C_TO_F__SCALE = 9.0/5.0;
 }
