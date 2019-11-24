@@ -5,6 +5,13 @@ import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SHIFT;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_K__SHIFT;
 import static com.moc.sharecalc.unitutil.UnitConstants.TODO__ADD_ACTUAL_VALUE;
 
+
+/**
+ * A Unit represents a unit of temperature, volume, length, etc.
+ * A Unit can be converted to any other unit of the same UnitType.
+ * It accomplieshes this by first converting to a base unit (e.g. the base for length is meter),
+ * then converting from the base unit to the result unit.
+ */
 public enum Unit {
 
     // Volume unit base is liter
@@ -86,11 +93,37 @@ public enum Unit {
     };
 
 
+    /**
+     * The category of the unit
+     */
     private UnitType _type;
+
+    /**
+     * What one should multiply a value of this Unit to convert to the base unit.
+     * E.g. the base factor of millimeter is 1E-3 so that one can multiply it
+     * by a number of millimeters to get a number of meters.
+     */
     private double _baseFactor;
+
+    /**
+     * Private constructor, used for Units with default conversion implementation
+     * @param type category of unit
+     * @param baseFactor see _baseFactor
+     */
     Unit(UnitType type, double baseFactor) {_type = type; _baseFactor = baseFactor;}
+
+    /**
+     * Private constructor, used for Units with special conversion implementation
+     * @param type category of unit
+     */
     Unit(UnitType type) {_type = type;}
 
+    /**
+     * Convert an amount in one unit to an amount in another unit
+     * @param toUnit The new unit to convert to
+     * @param amount The amount of the old unit you want to convert
+     * @return The amount in the new unit
+     */
     public Double convertTo(Unit toUnit, Double amount) {
         if (_type != toUnit._type)
         {
