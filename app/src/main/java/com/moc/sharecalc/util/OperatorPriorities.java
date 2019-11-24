@@ -50,11 +50,18 @@ class OperatorPriorities {
     static final int EXP = 3;
 
     /**
-     * Trig functions (sin, cos, etc.) priority
+     * Trig functions (sin, cos, etc.) and log functions (log, ln, lg) priority
      */
-    static final int TRIG = 4;
+    static final int NAMED_FUNCTION = 4;
 
 
+    /**
+     * Factorial priority
+     * Note that this value is not actually used in runtime because of how
+     * the factorial operator is processed. See the documentation for Factorial
+     * in UnaryOperator
+     */
+    static final int FACTORIAL = 5;
 
     // Priorities for bitwise operators
     static final int OR = 1; // Bitwise OR (|)

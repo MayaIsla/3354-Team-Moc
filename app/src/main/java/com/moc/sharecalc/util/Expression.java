@@ -10,6 +10,9 @@ import java.util.Stack;
 import java.util.regex.Pattern;
 
 public class Expression {
+    // The two parts of ⁻¹, used in cos⁻¹, sin⁻¹, etc. to denote inverse trig functions
+    static final char INVERSE_INDICATOR_NEGATIVE = '⁻';
+    static final char INVERSE_INDICATOR_ONE = '¹';
 
     // Regular expression for a left parenthesis
     private static final String RE_LPAREN = "\\(";
@@ -101,6 +104,59 @@ public class Expression {
         );
     }
 
+
+    /**
+     * Given a iterator of characters, asserts that the next characters match those given in
+     * a string.
+     * POSTCONDITION: If the characters did match the given string, the iterator's position
+     * will have mutated, i.e. it will now be positioned on the last character that matches so that
+     * the next call to next() will give the first character not in the match string. If the characters
+     * did not match the given string, the state of the iterator is indeterminate.
+     * @param it The character iterator to assert has the given characters
+     * @param chars The string of characters the iterator's next characters should match
+     * @throws AssertionError the next characters do not match the given string
+     */
+    private static void expectChars(CharacterIterator it, String chars) throws AssertionError {
+        for (char ch : chars.toCharArray())
+        {
+            if (it.next() != ch)
+            {
+                throw new AssertionError();
+            }
+        }
+    }
+
+    /**
+     * Returns whether the next characters in the character iterator match the inverse indicator (^-1)
+     * PRECONDITION: There is at least one character left in the iterator
+     * POSTCONDITION A: If the next characters match, the iterator will be placed at the end of the
+     * match such that another call to next() will give the first character after the match
+     * POSTCONDITION B: If the next characters match partially (i.e. the superscript - but not the superscript 1),
+     * an exception will be thrown.
+     * POSTCONDITION C: If the next characters do not match, the iterator will be placed back where it
+     * was before the function call.
+     * @param it character iterator to look for the inverse indicator
+     * @return Whether the next characters in the iterator match the inverse indicator
+     * @throws IllegalArgumentException the characters are malformed (i.e. partially match the target)
+     */
+    private static boolean nextIsInverseIndicator(CharacterIterator it) throws IllegalArgumentException {
+        char firstChar = it.next();
+        if (firstChar == INVERSE_INDICATOR_NEGATIVE)
+        {
+            if (it.next() != INVERSE_INDICATOR_ONE) // if malformed/partial match
+            {
+                throw new IllegalArgumentException();
+            } else {
+                return true; // full match
+            }
+        }
+        else {
+            // match failed; move iterator back to starting position
+            it.previous();
+            return false;
+        }
+    }
+
     /**
      * Given an expression string, return a list that contains Operators and Doubles (operands)
      * in the order they appear in the string.
@@ -164,25 +220,31 @@ public class Expression {
                     list.add(new Token(NullaryOperator.R_PAREN));
                     break;
 
-                //Unary (trig) operators
+                //Unary operators
+                case ('!'):
+                    list.add(new Token(UnaryOperator.FACTORIAL));
+                    break;
                 case ('c'): // cos
-                    if (it.next() != 'o' || it.next() != 's')
-                        throw new IllegalArgumentException("Expected 'cos'");
+                    expectChars(it, "os"); //remaining characters in 'cos'
+                    // see whether there is an inverse indicator (^-1) afterwards
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCCOS));
                     else
                         list.add(new Token(UnaryOperator.COS));
                     break;
                 case ('s'): // sin
-                    if (it.next() != 'i' || it.next() != 'n')
-                        throw new IllegalArgumentException("Expected 'sin'");
+                    expectChars(it, "in"); //remaining characters in 'sin'
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCSIN));
                     else
                         list.add(new Token(UnaryOperator.SIN));
                     break;
                 case ('t'): //tan
-                    if (it.next() != 'a' || it.next() != 'n')
-                        throw new IllegalArgumentException("Expected 'tan'");
+                    expectChars(it, "an"); //remaining characters in 'tan'
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCTAN));
                     else
-                        list.add(new Token(UnaryOperator.TAN));
-                    break;
+                        list.add(new Token(UnaryOperator.TAN));                    break;
                 case (' '): //whitespace (illegal)
                     throw new IllegalArgumentException("Whitespace not allowed in expression");
 
@@ -266,10 +328,36 @@ public class Expression {
                 if (op == NullaryOperator.L_PAREN) {
                     // Always push on left parentheses
                     operatorStack.push(op);
+                } else if (op == UnaryOperator.FACTORIAL) {
+                    // Special case: Factorial should always be evaluated immediately (since it
+                    // follows the operand instead of precedes it) instead of being pushed on to
+                    // the operator stack.
+                    Double operand = operandStack.pop();
+                    Double result = UnaryOperator.FACTORIAL.operate(operand);
+                    operandStack.push(result);
                 } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
                     // Always add Operators of higher priority so that they are evaluated (pushed off) first
                     // and also add if there are no Operators on the stack
-                    operatorStack.push(op);
+
+                    // Note the special case: there are no operators in the expression, only the terminator
+                    // This case can only occur when there are only factorial operators because
+                    // they skip the operator stack and operate immediately when they are encountered
+                    // In this case when we reach the terminator we should just have one operand on the
+                    // operand stack which should be the result
+
+                    if (op == NullaryOperator.TERMINATOR)
+                    {
+                        if (operandStack.size() != 1)
+                        {
+                            throw new IllegalArgumentException();
+                        }
+                        else
+                        {
+                            return operandStack.pop();
+                        }
+                    } else {
+                        operatorStack.push(op);
+                    }
                 } else // Operator has lower or equal priority than the head of the stack
                 {
                     // Pop and evaluate while the operator has lower prcedence than the
