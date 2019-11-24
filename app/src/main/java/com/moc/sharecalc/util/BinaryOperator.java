@@ -27,6 +27,38 @@ public enum BinaryOperator implements Operator {
         public double operate(double param1, double param2) {
             return Math.pow(param1, param2);
         }
+    },
+
+    // bitwise operators
+    OR(OperatorPriorities.OR) {
+        @Override
+        public double operate(double param1, double param2) {
+            return ((int) param1) | ((int) param2);
+        }
+    },
+    XOR(OperatorPriorities.XOR) {
+        @Override
+        public double operate(double param1, double param2) {
+            return ((int) param1) ^ ((int) param2);
+        }
+    },
+    AND(OperatorPriorities.AND) {
+        @Override
+        public double operate(double param1, double param2) {
+            return ((int) param1) & ((int) param2);
+        }
+    },
+    SHIFTL(OperatorPriorities.BITSHIFT) { // <<
+        @Override
+        public double operate(double param1, double param2) {
+            return ((int) param1) << ((int) param2);
+        }
+    },
+    SHIFTR(OperatorPriorities.BITSHIFT) { // >>
+        @Override
+        public double operate(double param1, double param2) {
+            return ((int) param1) >> ((int) param2);
+        }
     };
 
 
