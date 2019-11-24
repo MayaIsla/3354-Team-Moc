@@ -92,8 +92,13 @@ public enum Unit {
     Unit(UnitType type) {_type = type;}
 
     public Double convertTo(Unit toUnit, Double amount) {
-        return (amount / _baseFactor) // first convert to base unit
-                * toUnit._baseFactor; // then scale to the new unit
+        if (_type != toUnit._type)
+        {
+            throw new IllegalArgumentException();
+        } else {
+            return (amount / _baseFactor) // first convert to base unit
+                    * toUnit._baseFactor; // then scale to the new unit
+        }
     }
 
 }
