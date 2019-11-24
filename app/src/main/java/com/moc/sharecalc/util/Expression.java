@@ -101,6 +101,28 @@ public class Expression {
         );
     }
 
+
+    /**
+     * Given a iterator of characters, asserts that the next characters match those given in
+     * a string.
+     * POSTCONDITION: If the characters did match the given string, the iterator's position
+     * will have mutated, i.e. it will now be positioned on the last character that matches so that
+     * the next call to next() will give the first character not in the match string. If the characters
+     * did not match the given string, the state of the iterator is indeterminate.
+     * @param it The character iterator to assert has the given characters
+     * @param chars The string of characters the iterator's next characters should match
+     * @throws AssertionError the next characters do not match the given string
+     */
+    private static void expectChars(CharacterIterator it, String chars) throws AssertionError {
+        for (char ch : chars.toCharArray())
+        {
+            if (it.next() != ch)
+            {
+                throw new AssertionError();
+            }
+        }
+    }
+
     /**
      * Given an expression string, return a list that contains Operators and Doubles (operands)
      * in the order they appear in the string.
@@ -169,22 +191,16 @@ public class Expression {
                     list.add(new Token(UnaryOperator.FACTORIAL));
                     break;
                 case ('c'): // cos
-                    if (it.next() != 'o' || it.next() != 's')
-                        throw new IllegalArgumentException("Expected 'cos'");
-                    else
-                        list.add(new Token(UnaryOperator.COS));
+                    expectChars(it, "os"); //remaining characters in 'cos'
+                    list.add(new Token(UnaryOperator.COS));
                     break;
                 case ('s'): // sin
-                    if (it.next() != 'i' || it.next() != 'n')
-                        throw new IllegalArgumentException("Expected 'sin'");
-                    else
-                        list.add(new Token(UnaryOperator.SIN));
+                    expectChars(it, "in"); //remaining characters in 'sin'
+                    list.add(new Token(UnaryOperator.SIN));
                     break;
                 case ('t'): //tan
-                    if (it.next() != 'a' || it.next() != 'n')
-                        throw new IllegalArgumentException("Expected 'tan'");
-                    else
-                        list.add(new Token(UnaryOperator.TAN));
+                    expectChars(it, "an"); //remaining characters in 'tan'
+                    list.add(new Token(UnaryOperator.TAN));
                     break;
                 case (' '): //whitespace (illegal)
                     throw new IllegalArgumentException("Whitespace not allowed in expression");
