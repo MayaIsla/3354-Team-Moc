@@ -46,13 +46,13 @@ public enum Unit {
     // Mass / weight unit base is kilogram
     // Note: mass != weight, but one can convert between the two
     // i.e. weight = mass * gravitational acceleration
-    KILOGRAM(UnitType.MASS_AND_WEIGHT, 1),
-    GRAM(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    MILLIGRAM(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    CENTIGRAM(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    OUNCE(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    POUND(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    TON(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    KILOGRAMS(UnitType.MASS_AND_WEIGHT, 1),
+    GRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    MILLIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    CENTIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    OUNCES(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    POUNDS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    TONS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
 
     // Temperature is special to calculate since it involves not just scaling but also shifting
     // Hence we use an alternate constructor and manually override the conversion methods.
