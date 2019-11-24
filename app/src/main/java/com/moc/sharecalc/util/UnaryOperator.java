@@ -22,6 +22,24 @@ public enum UnaryOperator implements Operator {
             return Math.tan(param1);
         }
     },
+    ARCSIN (OperatorPriorities.NAMED_FUNCTION) { // inverse sin
+        @Override
+        public double operate(double param1) {
+            return Math.asin(param1);
+        }
+    },
+    ARCCOS (OperatorPriorities.NAMED_FUNCTION) { // inverse cos
+        @Override
+        public double operate(double param1) {
+            return Math.acos(param1);
+        }
+    },
+    ARCTAN (OperatorPriorities.NAMED_FUNCTION) { // inverse tan
+        @Override
+        public double operate(double param1) {
+            return Math.atan(param1);
+        }
+    },
     LOG_10(OperatorPriorities.NAMED_FUNCTION) { // Log base 10
         @Override
         public double operate(double param1) { return Math.log10(param1); }

@@ -10,6 +10,9 @@ import java.util.Stack;
 import java.util.regex.Pattern;
 
 public class Expression {
+    // The two parts of ⁻¹, used in cos⁻¹, sin⁻¹, etc. to denote inverse trig functions
+    static final char INVERSE_INDICATOR_NEGATIVE = '⁻';
+    static final char INVERSE_INDICATOR_ONE = '¹';
 
     // Regular expression for a left parenthesis
     private static final String RE_LPAREN = "\\(";
@@ -124,6 +127,37 @@ public class Expression {
     }
 
     /**
+     * Returns whether the next characters in the character iterator match the inverse indicator (^-1)
+     * PRECONDITION: There is at least one character left in the iterator
+     * POSTCONDITION A: If the next characters match, the iterator will be placed at the end of the
+     * match such that another call to next() will give the first character after the match
+     * POSTCONDITION B: If the next characters match partially (i.e. the superscript - but not the superscript 1),
+     * an exception will be thrown.
+     * POSTCONDITION C: If the next characters do not match, the iterator will be placed back where it
+     * was before the function call.
+     * @param it character iterator to look for the inverse indicator
+     * @return Whether the next characters in the iterator match the inverse indicator
+     * @throws IllegalArgumentException the characters are malformed (i.e. partially match the target)
+     */
+    private static boolean nextIsInverseIndicator(CharacterIterator it) throws IllegalArgumentException {
+        char firstChar = it.next();
+        if (firstChar == INVERSE_INDICATOR_NEGATIVE)
+        {
+            if (it.next() != INVERSE_INDICATOR_ONE) // if malformed/partial match
+            {
+                throw new IllegalArgumentException();
+            } else {
+                return true; // full match
+            }
+        }
+        else {
+            // match failed; move iterator back to starting position
+            it.previous();
+            return false;
+        }
+    }
+
+    /**
      * Given an expression string, return a list that contains Operators and Doubles (operands)
      * in the order they appear in the string.
      * PRECONDITION: Input string MUST be a valid expression (no whitespace, operands and operators
@@ -192,16 +226,25 @@ public class Expression {
                     break;
                 case ('c'): // cos
                     expectChars(it, "os"); //remaining characters in 'cos'
-                    list.add(new Token(UnaryOperator.COS));
+                    // see whether there is an inverse indicator (^-1) afterwards
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCCOS));
+                    else
+                        list.add(new Token(UnaryOperator.COS));
                     break;
                 case ('s'): // sin
                     expectChars(it, "in"); //remaining characters in 'sin'
-                    list.add(new Token(UnaryOperator.SIN));
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCSIN));
+                    else
+                        list.add(new Token(UnaryOperator.SIN));
                     break;
                 case ('t'): //tan
                     expectChars(it, "an"); //remaining characters in 'tan'
-                    list.add(new Token(UnaryOperator.TAN));
-                    break;
+                    if (nextIsInverseIndicator(it))
+                        list.add(new Token(UnaryOperator.ARCTAN));
+                    else
+                        list.add(new Token(UnaryOperator.TAN));                    break;
                 case (' '): //whitespace (illegal)
                     throw new IllegalArgumentException("Whitespace not allowed in expression");
 

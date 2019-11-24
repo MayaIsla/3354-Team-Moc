@@ -114,7 +114,7 @@ class ExpressionTests {
 
         @Test
         void operatorsTest() {
-            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostan").iterator();
+            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
             assertEquals(it.next().getOperator(), BinaryOperator.DIVIDE);
@@ -125,6 +125,9 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), UnaryOperator.SIN);
             assertEquals(it.next().getOperator(), UnaryOperator.COS);
             assertEquals(it.next().getOperator(), UnaryOperator.TAN);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCSIN);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCCOS);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCTAN);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
