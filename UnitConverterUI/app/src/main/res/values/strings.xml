@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">UnitConvertor</string>
+    <string name="instruction">Select Units Type</string>
+
+    <string-array name="unit_options_array">
+        <item>Convert To...</item>
+        <item>Volume</item>
+        <item>Length</item>
+        <item>Weight and Mass</item>
+        <item>Temperature</item>
+        <item>Area</item>
+        <item>Speed</item>
+        <item>Time</item>
+    </string-array>
+    <string name="title_activity_volume">VolumeActivity</string>
+</resources>
