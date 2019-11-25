@@ -4,10 +4,12 @@
 
     <string-array name="unit_options_array">
         <item>Convert To...</item>
+        <item>Currency</item>
         <item>Volume</item>
         <item>Length</item>
         <item>Weight and Mass</item>
         <item>Temperature</item>
+        <item>Energy</item>
         <item>Area</item>
         <item>Speed</item>
         <item>Time</item>
