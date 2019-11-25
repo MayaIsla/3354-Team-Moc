@@ -23,23 +23,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(adapter);
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()  {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)  {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) +"", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent)  {
-
-            }
-        });
+        mySpinner.setOnItemSelectedListener(this);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
     }
 
     @Override
