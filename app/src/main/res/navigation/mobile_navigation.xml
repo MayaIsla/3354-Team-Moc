@@ -40,4 +40,9 @@
         android:name="com.moc.sharecalc.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_programmer_calculator"
+        android:name="com.moc.sharecalc.ui.programmercalculator.ProgrammerCalculatorFragment"
+        android:label="@string/menu_programmer_calculator"
+        tools:layout="@layout/fragment_programmer_calculator" />
 </navigation>

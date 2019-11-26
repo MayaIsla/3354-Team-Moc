@@ -39,4 +39,5 @@
         <item>Time</item>
     </string-array>
     
+    <string name="menu_programmer_calculator">Programmer Calculator</string>
 </resources>
