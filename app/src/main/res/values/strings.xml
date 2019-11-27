@@ -43,4 +43,10 @@
         <item>Time</item>
     </string-array>
     
+<<<<<<< HEAD
+=======
+    <string name="menu_programmer_calculator">Programmer Calculator</string>
+    <string name="menu_scientific_calculator">Scientific Calculator</string>
+    <string name="menu_unit_converter">Unit Converter</string>
+>>>>>>> 405381ecc43cb0e14c16d30d8a5e1aa6d39b0518
 </resources>

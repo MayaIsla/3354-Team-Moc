@@ -140,6 +140,21 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), BinaryOperator.AND);
             assertEquals(it.next().getOperator(), BinaryOperator.OR);
             assertEquals(it.next().getOperator(), BinaryOperator.XOR);
+<<<<<<< Updated upstream
+=======
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
+        @Test
+        void bitwiseOperatorsTest() {
+            Iterator<Token> it = Expression.getTokensFromString("<<>>&|⊕").iterator();
+            assertEquals(it.next().getOperator(), BinaryOperator.SHIFTL);
+            assertEquals(it.next().getOperator(), BinaryOperator.SHIFTR);
+            assertEquals(it.next().getOperator(), BinaryOperator.AND);
+            assertEquals(it.next().getOperator(), BinaryOperator.OR);
+            assertEquals(it.next().getOperator(), BinaryOperator.XOR);
+>>>>>>> Stashed changes
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
