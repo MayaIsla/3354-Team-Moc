@@ -8,7 +8,7 @@
     <string name="action_settings">Settings</string>
     
     <dimen name = "textSize">30sp</dimen>
-    <dimen name = "buttonSpace">0.6p</dimen>
+    <dimen name = "buttonSpace">0.6dp</dimen>
     <dimen name = "layout">70dp</dimen>
 
     <string name="menu_home">Home</string>
@@ -43,11 +43,8 @@
         <item>Speed</item>
         <item>Time</item>
     </string-array>
-    
-<<<<<<< HEAD
-=======
+
     <string name="menu_programmer_calculator">Programmer Calculator</string>
     <string name="menu_scientific_calculator">Scientific Calculator</string>
     <string name="menu_unit_converter">Unit Converter</string>
->>>>>>> 405381ecc43cb0e14c16d30d8a5e1aa6d39b0518
 </resources>
