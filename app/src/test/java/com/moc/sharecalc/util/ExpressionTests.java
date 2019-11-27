@@ -57,6 +57,7 @@ class ExpressionTests {
     }
 
 
+
     @Nested
     class GetTokenFromStringTests {
 
@@ -72,6 +73,20 @@ class ExpressionTests {
         void basicOperandTest() {
             Iterator<Token> it =  Expression.getTokensFromString("5").iterator();
             assertEquals(it.next().getOperand(), 5);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "0b101,5",
+                "0x11,17",
+                "0xA,10",
+                "0o17,15"
+        })
+        void basicNondecimalOperandTest(String input, Double output) {
+            Iterator<Token> it =  Expression.getTokensFromString(input).iterator();
+            assertEquals(it.next().getOperand(), output);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
@@ -99,16 +114,32 @@ class ExpressionTests {
 
         @Test
         void operatorsTest() {
-            Iterator<Token> it = Expression.getTokensFromString("+*/^()sincostan").iterator();
+            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
             assertEquals(it.next().getOperator(), BinaryOperator.DIVIDE);
             assertEquals(it.next().getOperator(), BinaryOperator.EXPONENTIATE);
             assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
+            assertEquals(it.next().getOperator(), UnaryOperator.FACTORIAL);
             assertEquals(it.next().getOperator(), UnaryOperator.SIN);
             assertEquals(it.next().getOperator(), UnaryOperator.COS);
             assertEquals(it.next().getOperator(), UnaryOperator.TAN);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCSIN);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCCOS);
+            assertEquals(it.next().getOperator(), UnaryOperator.ARCTAN);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
+        @Test
+        void bitwiseOperatorsTest() {
+            Iterator<Token> it = Expression.getTokensFromString("<<>>&|⊕").iterator();
+            assertEquals(it.next().getOperator(), BinaryOperator.SHIFTL);
+            assertEquals(it.next().getOperator(), BinaryOperator.SHIFTR);
+            assertEquals(it.next().getOperator(), BinaryOperator.AND);
+            assertEquals(it.next().getOperator(), BinaryOperator.OR);
+            assertEquals(it.next().getOperator(), BinaryOperator.XOR);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
@@ -158,6 +189,46 @@ class ExpressionTests {
 
     }
 
+    @Nested
+    class FactorialTests {
+
+        @ParameterizedTest
+        @CsvSource({
+                "0,1",
+                "1,1",
+                "3,6",
+                "5,120"
+        })
+        void factorialOperationTests(Double input, Double output)
+        {
+            assertEquals(output, UnaryOperator.FACTORIAL.operate(input));
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "-1",
+                "-5"
+        })
+        void factorialOperationThrowTests(Double input)
+        {
+            assertThrows(IllegalArgumentException.class, () -> UnaryOperator.FACTORIAL.operate(input));
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "0!,1",
+                "3!,6",
+                "4!,24",
+                "2*4!,48",
+                "4!*2,48",
+                "3+4!+1,28"
+        })
+        void factorialExpressionTests(String expression, Double result) {
+            assertEquals(result, Expression.evaluate(expression));
+        }
+    }
+    
+
     @ParameterizedTest
     @CsvSource({
             "2+3,5",
@@ -171,6 +242,18 @@ class ExpressionTests {
             "sin(-cos0/2),-0.479425538604203"
     })
     void evaluationTests(String expression, Double result) {
+        assertEquals(result, Expression.evaluate(expression));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1<<4,16",
+            "19>>2,4",
+            "0xF0|0b1110,254",
+            "0b110⊕0b011,5",
+            "0xFFFF&0b1010,10"
+    })
+    void bitwiseTests(String expression, Double result) {
         assertEquals(result, Expression.evaluate(expression));
     }
 }

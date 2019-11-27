@@ -32,5 +32,18 @@
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiplication">*</string>
+
+    <string-array name="unit_options_array">
+    	<item>Volume</item>
+    	<item>Length</item>
+        <item>Weight and Mass</item>
+        <item>Temperature</item>
+        <item>Area</item>
+        <item>Speed</item>
+        <item>Time</item>
+    </string-array>
     
+    <string name="menu_programmer_calculator">Programmer Calculator</string>
+    <string name="menu_scientific_calculator">Scientific Calculator</string>
+    <string name="menu_unit_converter">Unit Converter</string>
 </resources>
