@@ -40,4 +40,5 @@
     </string-array>
     
     <string name="menu_programmer_calculator">Programmer Calculator</string>
+    <string name="menu_scientific_calculator">Scientific Calculator</string>
 </resources>
