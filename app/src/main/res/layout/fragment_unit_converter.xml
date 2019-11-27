@@ -16,7 +16,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/units_instruction"
+            android:text="@string/menu_unit_converter"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="62dp" />
 
