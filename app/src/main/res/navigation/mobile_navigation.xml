@@ -50,4 +50,9 @@
         android:name="com.moc.sharecalc.ui.scientificcalculator.ScientificCalculatorFragment"
         android:label="@string/menu_scientific_calculator"
         tools:layout="@layout/fragment_scientific_calculator" />
+    <fragment
+        android:id="@+id/nav_unit_converter"
+        android:name="com.moc.sharecalc.ui.unitconverter.UnitConverterFragment"
+        android:label="@string/menu_unit_converter"
+        tools:layout="@layout/fragment_unit_converter" />
 </navigation>
