@@ -8,7 +8,7 @@
     <string name="action_settings">Settings</string>
     
     <dimen name = "textSize">30sp</dimen>
-    <dimen name = "buttonSpace">0.6p</dimen>
+    <dimen name = "buttonSpace">0.6dp</dimen>
     <dimen name = "layout">70dp</dimen>
 
     <string name="menu_home">Home</string>

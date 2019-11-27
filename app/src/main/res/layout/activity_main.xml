@@ -22,9 +22,5 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
     
-    <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/layout_height"
-                android:orientation="horizontal">
 
 </androidx.drawerlayout.widget.DrawerLayout>
