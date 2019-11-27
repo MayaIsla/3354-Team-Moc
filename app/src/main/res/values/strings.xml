@@ -39,9 +39,6 @@
     	<item>Length</item>
         <item>Weight and Mass</item>
         <item>Temperature</item>
-        <item>Area</item>
-        <item>Speed</item>
-        <item>Time</item>
     </string-array>
 
     <string name="menu_programmer_calculator">Programmer Calculator</string>
