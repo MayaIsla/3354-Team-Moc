@@ -328,7 +328,6 @@ public class Expression {
                 if (op == NullaryOperator.L_PAREN) {
                     // Always push on left parentheses
                     operatorStack.push(op);
-<<<<<<< Updated upstream
                 } else if (op == UnaryOperator.FACTORIAL) {
                     // Special case: Factorial should always be evaluated immediately (since it
                     // follows the operand instead of precedes it) instead of being pushed on to
@@ -339,24 +338,6 @@ public class Expression {
                 } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
                     // Always add Operators of higher priority so that they are evaluated (pushed off) first
                     // and also add if there are no Operators on the stack
-=======
-<<<<<<< HEAD
-                } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
-                    // Always add Operators of higher priority so that they are evaluated (pushed off) first
-                    // and also add if there are no Operators on the stack
-                    operatorStack.push(op);
-=======
-                } else if (op == UnaryOperator.FACTORIAL) {
-                    // Special case: Factorial should always be evaluated immediately (since it
-                    // follows the operand instead of precedes it) instead of being pushed on to
-                    // the operator stack.
-                    Double operand = operandStack.pop();
-                    Double result = UnaryOperator.FACTORIAL.operate(operand);
-                    operandStack.push(result);
-                } else if (operatorStack.size() == 0 || op.getPriority() > operatorStack.peek().getPriority()) {
-                    // Always add Operators of higher priority so that they are evaluated (pushed off) first
-                    // and also add if there are no Operators on the stack
->>>>>>> Stashed changes
 
                     // Note the special case: there are no operators in the expression, only the terminator
                     // This case can only occur when there are only factorial operators because
@@ -377,10 +358,6 @@ public class Expression {
                     } else {
                         operatorStack.push(op);
                     }
-<<<<<<< Updated upstream
-=======
->>>>>>> 405381ecc43cb0e14c16d30d8a5e1aa6d39b0518
->>>>>>> Stashed changes
                 } else // Operator has lower or equal priority than the head of the stack
                 {
                     // Pop and evaluate while the operator has lower prcedence than the

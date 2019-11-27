@@ -42,15 +42,7 @@ public enum BinaryOperator implements Operator {
             return ((int) param1) ^ ((int) param2);
         }
     },
-<<<<<<< Updated upstream
     AND(OperatorPriorities.AND) {
-=======
-<<<<<<< HEAD
-    AND(OperatorPriorities.OR) {
-=======
-    AND(OperatorPriorities.AND) {
->>>>>>> 405381ecc43cb0e14c16d30d8a5e1aa6d39b0518
->>>>>>> Stashed changes
         @Override
         public double operate(double param1, double param2) {
             return ((int) param1) & ((int) param2);

@@ -52,14 +52,6 @@ class OperatorPriorities {
     /**
      * Trig functions (sin, cos, etc.) and log functions (log, ln, lg) priority
      */
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-    static final int TRIG = 4;
-
-
-=======
->>>>>>> Stashed changes
     static final int NAMED_FUNCTION = 4;
 
 
@@ -70,10 +62,6 @@ class OperatorPriorities {
      * in UnaryOperator
      */
     static final int FACTORIAL = 5;
-<<<<<<< Updated upstream
-=======
->>>>>>> 405381ecc43cb0e14c16d30d8a5e1aa6d39b0518
->>>>>>> Stashed changes
 
     // Priorities for bitwise operators
     static final int OR = 1; // Bitwise OR (|)
