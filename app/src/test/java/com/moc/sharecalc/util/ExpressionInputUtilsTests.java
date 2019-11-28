@@ -38,8 +38,8 @@ class ExpressionInputUtilsTests {
             "cos5,1,3",  // c|os5 -> cos|5
             "+23,1,2", // +|23 -> +2|3
             "+cos3,1,4", // +|cos3 -> +cos|3
-            "+cos3,2,4"  // +c|os3 -> +cos|3
-
+            "+cos3,2,4",  // +c|os3 -> +cos|3
+            "sin⁻¹,0,5"  // |sin⁻¹ -> sin⁻¹|
     })
     void moveCursorRight(String expression, int cursorInputPos, int cursorOutputPos) {
         assertEquals(cursorOutputPos, ExpressionInputUtils.moveCursorRight(cursorInputPos, expression));
@@ -55,8 +55,8 @@ class ExpressionInputUtilsTests {
             "cos5,4,3",  // cos5| -> cos|5
             "+23,2,1", // +2|3 -> +|23
             "+cos3,4,1", // +cos|3 -> +|cos3
-            "+cos3,3,1"  // +co|s3 -> +|cos3
-
+            "+cos3,3,1",  // +co|s3 -> +|cos3
+            "sin⁻¹,5,0"  // sin⁻¹| -> |sin⁻¹
     })
     void moveCursorLeft(String expression, int cursorInputPos, int cursorOutputPos) {
         assertEquals(cursorOutputPos, ExpressionInputUtils.moveCursorLeft(cursorInputPos, expression));

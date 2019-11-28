@@ -20,7 +20,7 @@ public class Expression {
 
     // Regular expression to match operators that contain multiple letters
     // Uses non-capturing groups
-    static final private String RE_WORD_OPERATOR = "(?:sin)|(?:cos)|(?:tan)|(?:sin⁻¹)|(?:cos⁻¹)|(?:tan⁻¹)|(?:log)|(?:ln)|(?:lg)";
+    static final private String RE_WORD_OPERATOR = "(?:sin⁻¹)|(?:cos⁻¹)|(?:tan⁻¹)|(?:sin)|(?:cos)|(?:tan)|(?:log)|(?:ln)|(?:lg)";
 
     // Regular expression to match operators that contain more than 1 character, letter or nonletter
     // Uses non-capturing groups
