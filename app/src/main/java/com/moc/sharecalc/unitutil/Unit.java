@@ -150,4 +150,5 @@ public enum Unit {
         return result.toString();
     }
 
+    public UnitType getType() {return _type;}
 }
