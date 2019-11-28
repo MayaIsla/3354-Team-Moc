@@ -42,6 +42,43 @@
         <item>Weight and Mass</item>
         <item>Temperature</item>
     </string-array>
+    <string-array name="volume_options">
+        <item>Liters</item>
+        <item>Milliliters</item>
+        <item>Teaspoons</item>
+        <item>Tablespoons</item>
+        <item>Fl Oz</item>
+        <item>Cups</item>
+        <item>Pints</item>
+        <item>Quarts</item>
+        <item>Gallons</item>
+    </string-array>
+    <string-array name="length_options">
+        <item>Meters</item>
+        <item>Micrometers</item>
+        <item>Millimeters</item>
+        <item>Centimeters</item>
+        <item>Decimeters</item>
+        <item>Decameters</item>
+        <item>Kilometers</item>
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yards</item>
+        <item>Miles</item>
+        <item>Light-seconds</item>
+        <item>Light-minutes</item>
+        <item>Light-months</item>
+        <item>Light-years</item>
+    </string-array>
+    <string-array name="weight_mass_options">
+        <item>Kilograms</item>
+        <item>Grams</item>
+        <item>Milligrams</item>
+        <item>Centigrams</item>
+        <item>Ounces</item>
+        <item>Pounds</item>
+        <item>Tons</item>
+    </string-array>
     <string-array name="temperature_options">
         <item>Fahrenheit</item>
         <item>Celsius</item>
