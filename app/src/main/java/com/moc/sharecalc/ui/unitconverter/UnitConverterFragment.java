@@ -33,8 +33,8 @@ public class UnitConverterFragment extends Fragment {
     }
 
     public void setUnitOptions(View root)  {
-        Spinner unitTypeSpinner = (Spinner)root.findViewById(R.id.unit_type_spinner);
-        Spinner convertOptionsSpinner = (Spinner)root.findViewById(R.id.convert_options);
+        Spinner unitTypeSpinner = root.findViewById(R.id.unit_type_spinner);
+        Spinner convertOptionsSpinner = root.findViewById(R.id.convert_options);
 
         // dynamically set contents of second spinner
 
