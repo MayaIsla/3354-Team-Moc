@@ -77,7 +77,7 @@
 
     <EditText
         android:id="@+id/editText8"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
         android:layout_marginTop="142dp"
@@ -93,13 +93,14 @@
 
     <EditText
         android:id="@+id/editText9"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
         android:layout_marginTop="187dp"
         android:layout_marginEnd="97dp"
         android:layout_marginBottom="499dp"
         android:layout_weight="1"
+        android:backgroundTint="#00333030"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
