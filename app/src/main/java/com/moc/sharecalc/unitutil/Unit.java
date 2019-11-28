@@ -150,5 +150,32 @@ public enum Unit {
         return result.toString();
     }
 
+
+    /**
+     * Returns a friendly, human-readable version of the enum name (e.g. 'feet')
+     * @return a human-readable name of the enum value
+     */
+    public String toString() {
+        String intermediate =  this.name().toLowerCase().replace('_',' '); //lowercase w/ spaces instead of underscores
+        if (_type == UnitType.TEMPERATURE) {
+            // capitalize first letter for Celsius, Fahrenheit, etc.
+            return intermediate.substring(0,1).toUpperCase() + intermediate.substring(1);
+        }
+        else
+        {
+            return intermediate;
+        }
+    }
+
+    /**
+     * Given a human-friendly name, retrieve the matching UnitType enum
+     * @param name Name of the enum value (case insensitive, may have spaces instead of underscores)
+     * @return The matching UnitType
+     */
+    public static UnitType fromString(String name) {
+        return UnitType.valueOf(name.toUpperCase().replace(' ','_'));
+    }
+
+
     public UnitType getType() {return _type;}
 }
