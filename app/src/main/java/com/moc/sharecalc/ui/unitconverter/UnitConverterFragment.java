@@ -37,23 +37,13 @@ public class UnitConverterFragment extends Fragment {
         Spinner convertOptionsSpinner = (Spinner)root.findViewById(R.id.convert_options);
 
         // dynamically set contents of second spinner
+
         unitTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()  {
             @Override
             public void onItemSelected(AdapterView<?> arg, View view, int position, long id)  {
-                System.out.println(position);
-                switch (position)  {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(
-                                getActivity().getBaseContext(),
-                                R.array.temperature_options,
-                                android.R.layout.simple_spinner_item);
-                        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        convertOptionsSpinner.setAdapter(spinnerAdapter);
-                        break;
-                }
+                ArrayAdapter<CharSequence> spinnerAdapter = getUnitOptions(position);
+                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                convertOptionsSpinner.setAdapter(spinnerAdapter);
             }
 
             @Override
@@ -61,5 +51,34 @@ public class UnitConverterFragment extends Fragment {
 
             }
         });
+    }
+
+    public ArrayAdapter getUnitOptions(int position)  {
+        switch (position)  {
+            case 1:
+                return ArrayAdapter.createFromResource(
+                        getActivity().getBaseContext(),
+                        R.array.volume_options,
+                        android.R.layout.simple_spinner_item);
+            case 2:
+                return ArrayAdapter.createFromResource(
+                        getActivity().getBaseContext(),
+                        R.array.length_options,
+                        android.R.layout.simple_spinner_item);
+            case 3:
+                return ArrayAdapter.createFromResource(
+                        getActivity().getBaseContext(),
+                        R.array.weight_mass_options,
+                        android.R.layout.simple_spinner_item);
+            case 4:
+                return ArrayAdapter.createFromResource(
+                        getActivity().getBaseContext(),
+                        R.array.temperature_options,
+                        android.R.layout.simple_spinner_item);
+        }
+        return ArrayAdapter.createFromResource(
+                getActivity().getBaseContext(),
+                R.array.default_units,
+                android.R.layout.simple_spinner_item);
     }
 }

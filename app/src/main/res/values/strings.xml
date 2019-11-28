@@ -84,6 +84,9 @@
         <item>Celsius</item>
         <item>Kelvin</item>
     </string-array>
+    <string-array name="default_units">
+        <item>Units...</item>
+    </string-array>
 
     <string name="menu_programmer_calculator">Programmer Calculator</string>
     <string name="menu_scientific_calculator">Scientific Calculator</string>
