@@ -34,11 +34,17 @@
     <string name="multiplication">*</string>
 
 	<string name="units_instruction">Select Units to Convert</string>
-    <string-array name="unit_options_array">
+    <string name="input_units">Input Units</string>
+    <string-array name="unit_options">
     	<item>Volume</item>
     	<item>Length</item>
         <item>Weight and Mass</item>
         <item>Temperature</item>
+    </string-array>
+    <string-array name="temperature_options">
+        <item>Fahrenheit</item>
+        <item>Celsius</item>
+        <item>Kelvin</item>
     </string-array>
 
     <string name="menu_programmer_calculator">Programmer Calculator</string>

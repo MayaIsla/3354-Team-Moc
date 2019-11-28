@@ -42,7 +42,7 @@
         android:layout_marginTop="107dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="565dp"
-        android:entries="@array/unit_options_array"
+        android:entries="@array/unit_options"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:layout_marginTop="186dp"
         android:layout_marginEnd="148.5dp"
         android:layout_marginBottom="513dp"
-        android:text="Input Units"
+        android:text="@string/input_units"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,16 +67,28 @@
         android:id="@+id/editText"
         android:layout_width="194dp"
         android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="227dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="454dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="227dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="194dp"
         android:layout_height="51dp"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="227dp" />
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="227dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="453dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
