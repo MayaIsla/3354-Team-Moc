@@ -2,6 +2,7 @@ package com.moc.sharecalc.unitutil;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -42,6 +43,15 @@ class UnitConversionTests {
                 Arguments.of(55E-5, Unit.DECAMETERS, 5500, Unit.MICROMETERS)
 
                 );
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "55,CELSIUS,'in kelvin: 328.15\nin fahrenheit: 131.0\n'"
+            // Additional tests not needed at this time because we have covered the main/only equivalency class
+    })
+    void getConversionsTests(Double inputAmount, Unit inputUnit, String output) {
+        assertEquals(output, Unit.getConversions(inputUnit, inputAmount));
     }
 
 }
