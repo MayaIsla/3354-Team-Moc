@@ -36,6 +36,7 @@
 	<string name="units_instruction">Select Units to Convert</string>
     <string name="input_units">Input Units</string>
     <string-array name="unit_options">
+        <item>Unit types...</item>
     	<item>Volume</item>
     	<item>Length</item>
         <item>Weight and Mass</item>
