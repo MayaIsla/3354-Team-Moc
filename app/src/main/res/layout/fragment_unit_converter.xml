@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_amount"
         android:layout_width="194dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/convert_options"
+        android:id="@+id/unit_spinner"
         android:layout_width="194dp"
         android:layout_height="51dp"
         android:layout_marginStart="216dp"
