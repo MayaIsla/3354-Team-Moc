@@ -27,6 +27,12 @@ public class UnitConverterFragment extends Fragment {
                 ViewModelProviders.of(this).get(UnitConverterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_unit_converter, container, false);
 
+        setUnitOptions(root);
+
+        return root;
+    }
+
+    public void setUnitOptions(View root)  {
         Spinner unitTypeSpinner = (Spinner)root.findViewById(R.id.unit_type_spinner);
         Spinner convertOptionsSpinner = (Spinner)root.findViewById(R.id.convert_options);
 
@@ -55,7 +61,5 @@ public class UnitConverterFragment extends Fragment {
 
             }
         });
-
-        return root;
     }
 }
