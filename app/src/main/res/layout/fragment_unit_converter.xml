@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/unit_type_spinner"
         android:layout_width="409dp"
         android:layout_height="59dp"
         android:layout_marginStart="1dp"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/convert_options"
         android:layout_width="194dp"
         android:layout_height="51dp"
         android:layout_marginStart="216dp"
