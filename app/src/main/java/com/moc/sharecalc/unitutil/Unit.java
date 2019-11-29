@@ -172,8 +172,8 @@ public enum Unit {
      * @param name Name of the enum value (case insensitive, may have spaces instead of underscores)
      * @return The matching UnitType
      */
-    public static UnitType fromString(String name) {
-        return UnitType.valueOf(name.toUpperCase().replace(' ','_'));
+    public static Unit fromString(String name) {
+        return Unit.valueOf(name.toUpperCase().replace(' ','_'));
     }
 
 
