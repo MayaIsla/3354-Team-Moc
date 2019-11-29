@@ -22,8 +22,8 @@ public enum Unit {
     FL_OZ(UnitType.VOLUME, 0.0295735),
     CUPS(UnitType.VOLUME, 0.236588),
     PINTS(UnitType.VOLUME, 0.473176),
-    QUARTS(UnitType.VOLUME, 1.05669),
-    GALLONS(UnitType.VOLUME, 0.264172),
+    QUARTS(UnitType.VOLUME, 0.946353),
+    GALLONS(UnitType.VOLUME, 3.78541),
 
     // Length unit base is meter
     METERS(UnitType.LENGTH, 1E0),
