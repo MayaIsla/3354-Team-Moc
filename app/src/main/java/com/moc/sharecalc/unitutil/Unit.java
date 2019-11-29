@@ -21,9 +21,9 @@ public enum Unit {
     TABLESPOONS(UnitType.VOLUME, 67.628),
     FL_OZ(UnitType.VOLUME, 33.814),
     CUPS(UnitType.VOLUME, 4.22675),
-    PINTS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
-    QUARTS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
-    GALLONS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
+    PINTS(UnitType.VOLUME, 2.11338),
+    QUARTS(UnitType.VOLUME, 1.05669),
+    GALLONS(UnitType.VOLUME, 0.264172),
 
     // Length unit base is meter
     METERS(UnitType.LENGTH, 1E0),
