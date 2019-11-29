@@ -49,10 +49,10 @@ public enum Unit {
     KILOGRAMS(UnitType.MASS_AND_WEIGHT, 1),
     GRAMS(UnitType.MASS_AND_WEIGHT, 1E-3),
     MILLIGRAMS(UnitType.MASS_AND_WEIGHT, 1E-6),
-    CENTIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    OUNCES(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    POUNDS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    TONS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    CENTIGRAMS(UnitType.MASS_AND_WEIGHT, 1E-5),
+    OUNCES(UnitType.MASS_AND_WEIGHT, 0.0283495),
+    POUNDS(UnitType.MASS_AND_WEIGHT, 0.453592),
+    TONS(UnitType.MASS_AND_WEIGHT, 907.185),
 
     // Temperature is special to calculate since it involves not just scaling but also shifting
     // Hence we use an alternate constructor and manually override the conversion methods.
