@@ -134,4 +134,20 @@ public enum Unit {
         }
     }
 
+
+    public static String getConversions(Unit fromUnit, Double fromAmount) {
+        StringBuilder result = new StringBuilder();
+        Unit[] destinationUnits = Unit.values();
+        for (Unit toUnit : destinationUnits)
+        {
+            if (toUnit != fromUnit // don't convert toUnit to itself
+                && toUnit._type == fromUnit._type) // only convert between units of the same type
+            {
+                // Format example when converting to e.g. feet: 'in feet: 23'
+                result.append("in "+toUnit.toString().toLowerCase() +": " + fromUnit.convertTo(toUnit, fromAmount) + "\n");
+            }
+        }
+        return result.toString();
+    }
+
 }
