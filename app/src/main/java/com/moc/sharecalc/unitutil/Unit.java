@@ -15,8 +15,8 @@ import static com.moc.sharecalc.unitutil.UnitConstants.TODO__ADD_ACTUAL_VALUE;
 public enum Unit {
 
     // Volume unit base is liter
-    LITERS(UnitType.VOLUME, 1),
-    MILLILITERS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
+    LITERS(UnitType.VOLUME, 1E0),
+    MILLILITERS(UnitType.VOLUME, 1E-4),
     TEASPOONS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
     TABLESPOONS(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
     FL_OZ(UnitType.VOLUME, TODO__ADD_ACTUAL_VALUE),
