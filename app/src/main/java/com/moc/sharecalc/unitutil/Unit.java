@@ -16,8 +16,8 @@ public enum Unit {
 
     // Volume unit base is liter
     LITERS(UnitType.VOLUME, 1E0),
-    MILLILITERS(UnitType.VOLUME, 1E-4),
-    TEASPOONS(UnitType.VOLUME, 202.884),
+    MILLILITERS(UnitType.VOLUME, 1E-3),
+    TEASPOONS(UnitType.VOLUME, 4.92892E-3),
     TABLESPOONS(UnitType.VOLUME, 67.628),
     FL_OZ(UnitType.VOLUME, 33.814),
     CUPS(UnitType.VOLUME, 4.22675),
@@ -47,8 +47,8 @@ public enum Unit {
     // Note: mass != weight, but one can convert between the two
     // i.e. weight = mass * gravitational acceleration
     KILOGRAMS(UnitType.MASS_AND_WEIGHT, 1),
-    GRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
-    MILLIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
+    GRAMS(UnitType.MASS_AND_WEIGHT, 1E3),
+    MILLIGRAMS(UnitType.MASS_AND_WEIGHT, 1E6),
     CENTIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
     OUNCES(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
     POUNDS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
