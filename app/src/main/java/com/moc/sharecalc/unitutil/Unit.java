@@ -1,5 +1,12 @@
 package com.moc.sharecalc.unitutil;
 
+
+
+import android.icu.text.DecimalFormat;
+import android.icu.text.NumberFormat;
+
+import java.util.Locale;
+
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SCALE;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SHIFT;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_K__SHIFT;
@@ -138,13 +145,20 @@ public enum Unit {
     public static String getConversions(Unit fromUnit, Double fromAmount) {
         StringBuilder result = new StringBuilder();
         Unit[] destinationUnits = Unit.values();
+        NumberFormat nf = NumberFormat.getInstance(Locale.US);
+        if (nf instanceof DecimalFormat) {
+            ((DecimalFormat) nf).setDecimalSeparatorAlwaysShown(false);
+            ((DecimalFormat) nf).setExponentSignAlwaysShown(false);
+            ((DecimalFormat) nf).setGroupingUsed(true);
+            ((DecimalFormat) nf).setMaximumSignificantDigits(4);
+        }
         for (Unit toUnit : destinationUnits)
         {
             if (toUnit != fromUnit // don't convert toUnit to itself
                 && toUnit._type == fromUnit._type) // only convert between units of the same type
             {
                 // Format example when converting to e.g. feet: 'in feet: 23'
-                result.append("in "+toUnit.toString().toLowerCase() +": " + fromUnit.convertTo(toUnit, fromAmount) + "\n");
+                result.append("in "+toUnit.toString().toLowerCase() +": " + nf.format(fromUnit.convertTo(toUnit, fromAmount)) + "\n");
             }
         }
         return result.toString();
