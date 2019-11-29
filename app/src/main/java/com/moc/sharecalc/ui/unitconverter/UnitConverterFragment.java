@@ -1,12 +1,16 @@
 package com.moc.sharecalc.ui.unitconverter;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +23,7 @@ import com.moc.sharecalc.R;
 import com.moc.sharecalc.unitutil.Unit;
 import com.moc.sharecalc.unitutil.UnitType;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UnitConverterFragment extends Fragment {
@@ -27,9 +32,11 @@ public class UnitConverterFragment extends Fragment {
     private View root;
     private Spinner unitTypeSpinner;
     private Spinner unitSpinner;
+    private TextView resultTextView;
     private MutableLiveData<UnitType> inputUnitType;
     private MutableLiveData<Unit> inputUnit;
     private MutableLiveData<Double> inputAmount;
+    private EditText amountEditText;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,11 +45,23 @@ public class UnitConverterFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_unit_converter, container, false);
         unitTypeSpinner = root.findViewById(R.id.unit_type_spinner);
         unitSpinner = root.findViewById(R.id.unit_spinner);
+        resultTextView = root.findViewById(R.id.textView_result);
+        amountEditText = root.findViewById(R.id.editText_amount);
 
         inputUnitType = viewModel.getLiveInputUnitType();
         inputUnit = viewModel.getLiveInputUnit();
         inputAmount = viewModel.getLiveInputAmount();
 
+        setupEventHandlers();
+        setupObservers();
+        populateUnitTypesSpinner();
+        populateUnitsSpinner();
+
+        return root;
+    }
+
+    private void setupEventHandlers() {
+        // Event handler: On unit type spinner selection change
         unitTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -56,17 +75,66 @@ public class UnitConverterFragment extends Fragment {
             }
         });
 
-        Observer<UnitType> unitTypeObserver = new Observer<UnitType>() {
+
+        // Event handler: On unit spinner selection change
+        unitSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedUnit = (String) parent.getItemAtPosition(position);
+                inputUnit.setValue(Unit.fromString(selectedUnit));
+                populateResult();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        // Event handler: On text input (amount) change
+        amountEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    Double newAmount = Double.parseDouble(s.toString());
+                    inputAmount.setValue(newAmount);
+                } catch (NumberFormatException ex) {
+                    // no change
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void setupObservers() {
+        // Unit type observer
+        inputUnitType.observe(this, new Observer<UnitType>() {
             @Override
             public void onChanged(UnitType unitType) {
                 populateUnitsSpinner();
             }
-        };
-        inputUnitType.observe(this, unitTypeObserver);
+        });
 
+        // Unit observer
+        inputUnit.observe(this, new Observer<Unit>() {
+            @Override
+            public void onChanged(Unit unit) {
+                populateResult();
+            }
+        });
 
-        populateUnitTypesSpinner();
-        return root;
+        // Amount observer
+        inputAmount.observe(this, new Observer<Double>() {
+            @Override
+            public void onChanged(Double amount) {
+                populateResult();
+            }
+        });
     }
 
     private void populateUnitTypesSpinner() {
@@ -78,6 +146,12 @@ public class UnitConverterFragment extends Fragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, typeStrings);
         unitTypeSpinner.setAdapter(adapter);
+
+        try {
+            final int position = typeStrings.indexOf(inputUnitType.getValue().toString());
+            System.out.println(position);
+            unitSpinner.setSelection(position);
+        } catch (Exception ex) { System.out.println(ex.toString()); }
     }
 
     private void populateUnitsSpinner() {
@@ -90,6 +164,11 @@ public class UnitConverterFragment extends Fragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, unitStrings);
         unitSpinner.setAdapter(adapter);
+    }
+
+    private void populateResult() {
+        if (inputUnit.getValue() != null && inputAmount.getValue() != null)
+            resultTextView.setText(Unit.getConversions(inputUnit.getValue(), inputAmount.getValue()));
     }
 
 }
