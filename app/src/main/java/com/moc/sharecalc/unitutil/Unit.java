@@ -47,8 +47,8 @@ public enum Unit {
     // Note: mass != weight, but one can convert between the two
     // i.e. weight = mass * gravitational acceleration
     KILOGRAMS(UnitType.MASS_AND_WEIGHT, 1),
-    GRAMS(UnitType.MASS_AND_WEIGHT, 1E3),
-    MILLIGRAMS(UnitType.MASS_AND_WEIGHT, 1E6),
+    GRAMS(UnitType.MASS_AND_WEIGHT, 1E-3),
+    MILLIGRAMS(UnitType.MASS_AND_WEIGHT, 1E-6),
     CENTIGRAMS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
     OUNCES(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
     POUNDS(UnitType.MASS_AND_WEIGHT, TODO__ADD_ACTUAL_VALUE),
