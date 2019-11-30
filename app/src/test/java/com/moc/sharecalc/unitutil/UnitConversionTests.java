@@ -45,6 +45,31 @@ class UnitConversionTests {
                 );
     }
 
+
+    @ParameterizedTest
+    @MethodSource("basicVolumeConvertTestProvider")
+    void basicVolumeConvertTest(double amount, Unit unit, double toAmount, Unit toUnit) {
+        assertEquals(toAmount, unit.convertTo(toUnit, amount), 0.5);
+    }
+
+    private static Stream<Arguments> basicVolumeConvertTestProvider() {
+        return Stream.of(
+        //Conversion Test for Volume units
+        Arguments.of(10, Unit.LITERS, 10, Unit.LITERS),
+        Arguments.of(10, Unit.LITERS, 10E3, Unit.MILLILITERS),
+        Arguments.of(10, Unit.LITERS, 2028.84, Unit.TEASPOONS),
+        Arguments.of(10, Unit.LITERS, 676.28, Unit.TABLESPOONS),
+        Arguments.of(10, Unit.LITERS, 338.14, Unit.FL_OZ),
+        Arguments.of(10, Unit.LITERS, 42.2675, Unit.CUPS),
+        Arguments.of(10, Unit.LITERS, 21.1338, Unit.PINTS),
+        Arguments.of(10, Unit.LITERS, 10.5669, Unit.QUARTS),
+        Arguments.of(10, Unit.LITERS, 2.64172, Unit.GALLONS)
+
+        );
+
+    }
+
+
     @ParameterizedTest
     @CsvSource({
             "55,CELSIUS,'in kelvin: 328.15\nin fahrenheit: 131.0\n'"
