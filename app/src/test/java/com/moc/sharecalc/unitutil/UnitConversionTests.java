@@ -63,7 +63,15 @@ class UnitConversionTests {
         Arguments.of(10, Unit.LITERS, 42.2675, Unit.CUPS),
         Arguments.of(10, Unit.LITERS, 21.1338, Unit.PINTS),
         Arguments.of(10, Unit.LITERS, 10.5669, Unit.QUARTS),
-        Arguments.of(10, Unit.LITERS, 2.64172, Unit.GALLONS)
+        Arguments.of(10, Unit.LITERS, 2.64172, Unit.GALLONS),
+
+                Arguments.of(45, Unit.KILOGRAMS, 45, Unit.KILOGRAMS),
+                Arguments.of(45, Unit.KILOGRAMS, 45E3, Unit.GRAMS),
+                Arguments.of(45, Unit.KILOGRAMS, 45E6, Unit.MILLIGRAMS),
+                Arguments.of(45, Unit.KILOGRAMS, 45E5, Unit.CENTIGRAMS),
+                Arguments.of(45, Unit.KILOGRAMS, 1587.33, Unit.OUNCES),
+                Arguments.of(45, Unit.KILOGRAMS, 99.208, Unit.POUNDS),
+                Arguments.of(45, Unit.KILOGRAMS, 0.049604, Unit.TONS)
 
         );
 
