@@ -19,6 +19,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.moc.sharecalc.R;
 import com.moc.sharecalc.unitutil.Unit;
 import com.moc.sharecalc.unitutil.UnitType;
@@ -37,11 +38,12 @@ public class UnitConverterFragment extends Fragment {
     private MutableLiveData<Unit> inputUnit;
     private MutableLiveData<Double> inputAmount;
     private EditText amountEditText;
+    private boolean enableEventHandlers = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewModel =
-                ViewModelProviders.of(this).get(UnitConverterViewModel.class);
+                ViewModelProviders.of(getActivity()).get(UnitConverterViewModel.class);
         root = inflater.inflate(R.layout.fragment_unit_converter, container, false);
         unitTypeSpinner = root.findViewById(R.id.unit_type_spinner);
         unitSpinner = root.findViewById(R.id.unit_spinner);
@@ -57,16 +59,25 @@ public class UnitConverterFragment extends Fragment {
         populateUnitTypesSpinner();
         populateUnitsSpinner();
 
+        if (inputAmount.getValue() != null)
+            amountEditText.setText(inputAmount.getValue().toString());
+
+        enableEventHandlers = true;
+
+
         return root;
     }
 
     private void setupEventHandlers() {
         // Event handler: On unit type spinner selection change
         unitTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            private int calls; // the number of times the handler has been called
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedUnitType = (String) parent.getItemAtPosition(position);
-                inputUnitType.setValue(UnitType.fromString(selectedUnitType));
+                if (calls++ > 0) { // ignore the first call (which is triggered when the event handler is created)
+                    String selectedUnitType = (String) parent.getItemAtPosition(position);
+                    inputUnitType.setValue(UnitType.fromString(selectedUnitType));
+                }
             }
 
             @Override
@@ -147,11 +158,11 @@ public class UnitConverterFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, typeStrings);
         unitTypeSpinner.setAdapter(adapter);
 
+        // If the view model already has a unit type selected, reflect that in the view
         try {
             final int position = typeStrings.indexOf(inputUnitType.getValue().toString());
-            System.out.println(position);
-            unitSpinner.setSelection(position);
-        } catch (Exception ex) { System.out.println(ex.toString()); }
+            unitTypeSpinner.setSelection(position);
+        } catch (Exception ex) { /* No value yet, ignore */ }
     }
 
     private void populateUnitsSpinner() {
@@ -164,6 +175,12 @@ public class UnitConverterFragment extends Fragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, unitStrings);
         unitSpinner.setAdapter(adapter);
+
+        // If the view model already has a unit selected, reflect that in the view
+        try {
+            final int position = unitStrings.indexOf(inputUnit.getValue().toString());
+            unitSpinner.setSelection(position);
+        } catch (Exception ex) { /* No value yet, ignore */ }
     }
 
     private void populateResult() {
