@@ -46,4 +46,27 @@
     <string name="menu_programmer_calculator">Programmer Calculator</string>
     <string name="menu_scientific_calculator">Scientific Calculator</string>
     <string name="menu_unit_converter">Unit Converter</string>
+
+    <!--String tags not found, after Maya's commit-->
+    <string name="RAD">RAD</string>
+    <string name="root">root</string>
+    <string name="power">power</string>
+    <string name="square">SQ</string>
+    <string name="factorial">!</string>
+    <string name="inverse">inv</string>
+    <string name="pi">π</string>
+    <string name="e_constant">E</string>
+    <string name="log">log</string>
+    <string name="ln">ln</string>
+    <string name="sin">sin</string>
+    <string name="sin_inverse">sin-1</string>
+    <string name="cos">cos</string>
+    <string name="cos_inverse">cos-1</string>
+    <string name="tan">tan</string>
+    <string name="tan_inverse">tan-1</string>
+    <string name="clear">C</string>
+    <string name="plus_or_minus">±</string>
+    <string name="modulo">mod</string>
+    <string name="division">÷</string>
+
 </resources>

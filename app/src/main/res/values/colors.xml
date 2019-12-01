@@ -10,5 +10,9 @@
     <color name="operandColour">#ffb6c1</color>
     <color name="equalSign">#ffffff</color>
 
-
+    <!--color tags not found-->
+    <color name="horizontal_btn_color">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="function_color">#ffb6c1</color>
+    <color name="number_color">#000000</color>
 </resources>
