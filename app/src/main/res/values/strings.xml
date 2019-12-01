@@ -47,7 +47,7 @@
     <string name="menu_scientific_calculator">Scientific Calculator</string>
     <string name="menu_unit_converter">Unit Converter</string>
 
-    <!--String tags not found, after Maya's commit-->
+    <!--String tags not found for Layout.xml-->
     <string name="RAD">RAD</string>
     <string name="root">root</string>
     <string name="power">power</string>
@@ -68,5 +68,8 @@
     <string name="plus_or_minus">±</string>
     <string name="modulo">mod</string>
     <string name="division">÷</string>
+    <string name="dot">.</string>
+    <string name="delete">DEL</string>
+    <string name="equal">=</string>
 
 </resources>
