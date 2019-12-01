@@ -21,6 +21,88 @@ public class ScientificCalculatorFragment extends Fragment {
         viewModel =
                 ViewModelProviders.of(this).get(ScientificCalculatorViewModel.class);
         View root = inflater.inflate(R.layout.fragment_scientific_calculator, container, false);
+
+        View btn = root.findViewById(R.id.btn_root);
+        btn.setOnClickListener(new View.OnClickListener()  {
+            public void onClick(View view)  {
+                onRootClick(view);
+                onPowerClick(view);
+                onSquareClick(view);
+                onClickFactorial(view);
+                onClickInverse(view);
+                onClickPIorE(view);
+                onClickFunction(view);
+                onClickClear(view);
+                onPorMClick(view);
+                onModuloClick(view);
+                onClickOprator(view);
+                onClickNumber(view);
+                onDotClick(view);
+                onClickDelete(view);
+                onClickEqual(view);
+            }
+
+        });
         return root;
     }
+
+    public void onClickEqual(View view)  {
+
+    }
+
+    public void onClickDelete(View view)  {
+
+    }
+
+    public void onDotClick(View view)  {
+
+    }
+
+    public void onClickNumber(View view)  {
+
+    }
+
+    public void onClickOprator(View view)  {
+
+    }
+
+    public void onModuloClick(View view)  {
+
+    }
+    public void onPorMClick(View view)  {
+
+    }
+
+    public void onClickClear(View view)  {
+
+    }
+
+    public void onClickFunction(View view)  {
+
+    }
+
+    public void onClickPIorE(View view)  {
+
+    }
+
+    public void onRootClick(View view)  {
+
+    }
+
+    public void onPowerClick(View view)  {
+
+    }
+
+    public void onSquareClick(View view)  {
+
+    }
+
+    public void onClickFactorial(View view)  {
+
+    }
+
+    public void onClickInverse(View view)  {
+
+    }
+
 }
