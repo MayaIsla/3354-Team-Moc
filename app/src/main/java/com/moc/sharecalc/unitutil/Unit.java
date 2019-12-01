@@ -1,5 +1,12 @@
 package com.moc.sharecalc.unitutil;
 
+
+
+import android.icu.text.DecimalFormat;
+import android.icu.text.NumberFormat;
+
+import java.util.Locale;
+
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SCALE;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SHIFT;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_K__SHIFT;
@@ -138,16 +145,51 @@ public enum Unit {
     public static String getConversions(Unit fromUnit, Double fromAmount) {
         StringBuilder result = new StringBuilder();
         Unit[] destinationUnits = Unit.values();
+        NumberFormat nf = NumberFormat.getInstance(Locale.US);
+        if (nf instanceof DecimalFormat) {
+            ((DecimalFormat) nf).setDecimalSeparatorAlwaysShown(false);
+            ((DecimalFormat) nf).setExponentSignAlwaysShown(false);
+            ((DecimalFormat) nf).setGroupingUsed(true);
+            ((DecimalFormat) nf).setMaximumSignificantDigits(4);
+        }
         for (Unit toUnit : destinationUnits)
         {
             if (toUnit != fromUnit // don't convert toUnit to itself
                 && toUnit._type == fromUnit._type) // only convert between units of the same type
             {
                 // Format example when converting to e.g. feet: 'in feet: 23'
-                result.append("in "+toUnit.toString().toLowerCase() +": " + fromUnit.convertTo(toUnit, fromAmount) + "\n");
+                result.append("in "+toUnit.toString().toLowerCase() +": " + nf.format(fromUnit.convertTo(toUnit, fromAmount)) + "\n");
             }
         }
         return result.toString();
     }
 
+
+    /**
+     * Returns a friendly, human-readable version of the enum name (e.g. 'feet')
+     * @return a human-readable name of the enum value
+     */
+    public String toString() {
+        String intermediate =  this.name().toLowerCase().replace('_',' '); //lowercase w/ spaces instead of underscores
+        if (_type == UnitType.TEMPERATURE) {
+            // capitalize first letter for Celsius, Fahrenheit, etc.
+            return intermediate.substring(0,1).toUpperCase() + intermediate.substring(1);
+        }
+        else
+        {
+            return intermediate;
+        }
+    }
+
+    /**
+     * Given a human-friendly name, retrieve the matching UnitType enum
+     * @param name Name of the enum value (case insensitive, may have spaces instead of underscores)
+     * @return The matching UnitType
+     */
+    public static Unit fromString(String name) {
+        return Unit.valueOf(name.toUpperCase().replace(' ','_'));
+    }
+
+
+    public UnitType getType() {return _type;}
 }

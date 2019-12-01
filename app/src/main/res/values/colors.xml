@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#ffb6c1</color>
+    <color name="colorPrimaryDark">#ee3e61</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="space">#ffffff</color>
+    <color name="bottomButtonColour">#ee3e61</color>
+    <color name="numberButton">#D81B60</color>
+    <color name="operandColour">#ffb6c1</color>
+    <color name="equalSign">#ffffff</color>
+
+
 </resources>
