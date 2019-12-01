@@ -17,6 +17,11 @@ public class UnitConverterUITests {
 	private ArrayAdapter<String> unitTypeAdapter; 
 	private ArrayAdapter<String> unitAdapter; 
 	private View currentView; 
+	private static final int UNIT_TYPE_COUNT = 4; 
+	private static final int LENGTH_UNIT_COUNT = 15;
+	private static final int VOLUME_UNIT_COUNT = 9; 
+	private static final int MASS_WEIGHT_UNIT_COUNT = 7; 
+	private static final int TEMPERATURE_UNIT_COUNT = 3; 
 
 	@Before 
 	public void initialize()  {
@@ -25,6 +30,12 @@ public class UnitConverterUITests {
 		unitSpinner = currentView.findViewById(R.id.unit_spinner); 
 		unitTypeAdapter = unitTypeSpinner.getAdapter(); 
 		unitAdapter = unitSpinner.getAdapter(); 
+	}
+
+	// test whether unit type spinner is initialized with correct amount of data
+	@Test 
+	public void unitTypeSpinnerTest()  {
+		assertEquals(unitTypeAdapter.getCount(), UNIT_TYPE_COUNT); 
 	}
 
 
