@@ -55,7 +55,7 @@
         android:name="com.moc.sharecalc.ui.unitconverter.UnitConverterFragment"
         android:label="@string/menu_unit_converter"
         tools:layout="@layout/fragment_unit_converter" />
-    
+    <!--
    <fragment
        android:id="@+id/calculation"
        android:layout_width="match_parent"
@@ -588,7 +588,7 @@
 
        </LinearLayout>
 
-   </LinearLayout>
+   </LinearLayout> -->
 
 
 <!--</RelativeLayout>-->
