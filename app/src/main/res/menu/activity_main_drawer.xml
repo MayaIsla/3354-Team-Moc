@@ -4,14 +4,19 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+
         <item
             android:id="@+id/nav_scientific_calculator"
-            android:title="@string/menu_scientific_calculator" />
+            android:icon="@drawable/ic_flask"
+            android:title="Scientific Calculator" />
         <item
             android:id="@+id/nav_programmer_calculator"
+            android:icon="@drawable/ic_glasses"
             android:title="@string/menu_programmer_calculator" />
         <item
             android:id="@+id/nav_unit_converter"
+            android:icon="@drawable/ic_x"
             android:title="@string/menu_unit_converter" />
         <item
             android:id="@+id/nav_home"
