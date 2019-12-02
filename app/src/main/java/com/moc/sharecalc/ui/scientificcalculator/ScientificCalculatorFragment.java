@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.moc.sharecalc.R;
+import com.moc.sharecalc.ui.ShareDataSingleton;
 import com.moc.sharecalc.util.ExpressionInputUtils;
 
 
@@ -108,6 +109,8 @@ public class ScientificCalculatorFragment extends Fragment {
             @Override
             public void onChanged(String s) {
                 resultTextView.setText(s);
+                ShareDataSingleton.getInstance().setCurrentInput(expressionEditText.getText().toString());
+                ShareDataSingleton.getInstance().setCurrentResult(s);
             }
         });
 
