@@ -6,10 +6,9 @@
     <string name="nav_header_subtitle">by Team Moc</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    
-    <dimen name = "textSize">30sp</dimen>
-    <dimen name = "buttonSpace">0.6dp</dimen>
-    <dimen name = "layout">70dp</dimen>
+
+    <dimen name="buttonSpace">0.6dp</dimen>
+    <dimen name="layout">70dp</dimen>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -17,7 +16,30 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    
+
+
+
+    <string-array name="unit_options_array">
+        <item>Volume</item>
+        <item>Length</item>
+        <item>Weight and Mass</item>
+        <item>Temperature</item>
+        <item>Area</item>
+        <item>Speed</item>
+        <item>Time</item>
+    </string-array>
+
+    <string name="menu_programmer_calculator">Programmer Calculator</string>
+    <string name="menu_scientific_calculator">Scientific Calculator</string>
+    <string name="menu_unit_converter">Unit Converter</string>
+
+
+    <string name="Sharecal">Calculator</string>
+    <dimen name="button_height">75dp</dimen>
+    <dimen name="textSize">25sp</dimen>
+    <dimen name="buttonMargin">0.5dp</dimen>
+    <dimen name="layout_height">70dp</dimen>
+    <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
@@ -27,23 +49,33 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="nine">9</string>
-    <string name="zero">0</string>
-    
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiplication">*</string>
-
-    <string-array name="unit_options_array">
-    	<item>Volume</item>
-    	<item>Length</item>
-        <item>Weight and Mass</item>
-        <item>Temperature</item>
-        <item>Area</item>
-        <item>Speed</item>
-        <item>Time</item>
-    </string-array>
-    
-    <string name="menu_programmer_calculator">Programmer Calculator</string>
-    <string name="menu_scientific_calculator">Scientific Calculator</string>
-    <string name="menu_unit_converter">Unit Converter</string>
+    <string name="division">/</string>
+    <string name="dot">.</string>
+    <string name="modulo">%</string>
+    <string name="equal">=</string>
+    <string name="delete">⌫</string>
+    <string name="clear">C</string>
+    <string name="RAD">RAD</string>
+    <string name="DEG">DEG</string>
+    <string name="parentheses_open">(</string>
+    <string name="parentheses_close">)</string>
+    <string name="root">"\u221A"</string>
+    <string name="power">^</string>
+    <string name="factorial">!</string>
+    <string name="inverse">1/X</string>
+    <string name="e_constant">e</string>
+    <string name="pi">"\u03A0"</string>
+    <string name="log">log</string>
+    <string name="ln">ln</string>
+    <string name="sin">sin</string>
+    <string name="sin_inverse">sin⁻¹</string>
+    <string name="cos">cos</string>
+    <string name="cos_inverse">cos⁻¹</string>
+    <string name="tan">tan</string>
+    <string name="tan_inverse">tan⁻¹</string>
+    <string name="button_move_cursor_left">←</string>
+    <string name="button_move_cursor_right">→</string>
 </resources>
