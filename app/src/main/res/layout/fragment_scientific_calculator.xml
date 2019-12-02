@@ -116,7 +116,7 @@
                     android:textSize="@dimen/textSize" />
 
                 <Button
-                    android:id="@+id/cos"
+                    android:id="@+id/btn_cos"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/button_height"
                     android:layout_margin="@dimen/buttonMargin"
