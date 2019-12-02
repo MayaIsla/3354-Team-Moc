@@ -204,7 +204,28 @@
         android:layout_alignStart="@+id/button0"
         android:background="@android:color/holo_blue_bright"
         android:layout_marginBottom="5dp"
-        android:text="sl" />
+        android:text="@string/shiftLeft" />
+
+    <Button
+        android:id="@+id/buttonsr"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignStart="@+id/button1"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="5dp"
+        android:text="@string/shiftRight" />
+    <Button
+        android:id="@+id/buttonXOR"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button3"
+        android:layout_alignStart="@+id/button2"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="5dp"
+        android:text="@string/XOR" />
 
 
 
