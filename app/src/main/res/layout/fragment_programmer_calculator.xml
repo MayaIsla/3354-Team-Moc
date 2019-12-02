@@ -195,6 +195,17 @@
         android:background="@android:color/holo_blue_light"
         android:text="F" />
 
+    <Button
+        android:id="@+id/buttonsl"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignStart="@+id/button0"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="5dp"
+        android:text="sl" />
+
 
 
 
