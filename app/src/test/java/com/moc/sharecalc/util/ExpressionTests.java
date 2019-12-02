@@ -114,7 +114,7 @@ class ExpressionTests {
 
         @Test
         void operatorsTest() {
-            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹").iterator();
+            Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹loglnlg").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
             assertEquals(it.next().getOperator(), BinaryOperator.DIVIDE);
@@ -128,7 +128,10 @@ class ExpressionTests {
             assertEquals(it.next().getOperator(), UnaryOperator.ARCSIN);
             assertEquals(it.next().getOperator(), UnaryOperator.ARCCOS);
             assertEquals(it.next().getOperator(), UnaryOperator.ARCTAN);
+            assertEquals(it.next().getOperator(), UnaryOperator.LOG_10);
+            assertEquals(it.next().getOperator(), UnaryOperator.LOG_E);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+
             assertFalse(it.hasNext());
         }
 
@@ -239,7 +242,9 @@ class ExpressionTests {
             "5/2cos0,2.5",
             "-.5(3+6),-4.5",
             "-.5(3+6)cos0,-4.5",
-            "sin(-cos0/2),-0.479425538604203"
+            "sin(-cos0/2),-0.479425538604203",
+            "log4,0.6020599913279624",
+            "ln10,2.302585092994046"
     })
     void evaluationTests(String expression, Double result) {
         assertEquals(result, Expression.evaluate(expression));

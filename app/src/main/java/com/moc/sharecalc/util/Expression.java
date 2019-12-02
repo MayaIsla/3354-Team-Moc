@@ -242,6 +242,21 @@ public class Expression {
                     else
                         list.add(new Token(UnaryOperator.COS));
                     break;
+                case ('l'): //log10, log2, and ln
+                    ch = it.next();
+                    switch (ch)
+                    {
+                        case('o'):
+                            expectChars(it, "g");
+                            list.add(new Token(UnaryOperator.LOG_10));
+                            break;
+                        case('n'):
+                            list.add(new Token(UnaryOperator.LOG_E));
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                 case ('s'): // sin
                     expectChars(it, "in"); //remaining characters in 'sin'
                     if (nextIsInverseIndicator(it))
@@ -254,7 +269,8 @@ public class Expression {
                     if (nextIsInverseIndicator(it))
                         list.add(new Token(UnaryOperator.ARCTAN));
                     else
-                        list.add(new Token(UnaryOperator.TAN));                    break;
+                        list.add(new Token(UnaryOperator.TAN));
+                    break;
                 case (' '): //whitespace (illegal)
                     throw new IllegalArgumentException("Whitespace not allowed in expression");
 
