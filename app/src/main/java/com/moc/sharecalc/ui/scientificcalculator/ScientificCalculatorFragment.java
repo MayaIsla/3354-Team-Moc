@@ -25,12 +25,14 @@ public class ScientificCalculatorFragment extends Fragment {
     private EditText expressionEditText;
     private TextView resultTextView;
     private LiveData<String> liveResult;
+    private View root;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewModel =
                 ViewModelProviders.of(this).get(ScientificCalculatorViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_scientific_calculator, container, false);
+        root = inflater.inflate(R.layout.fragment_scientific_calculator, container, false);
         expressionEditText = root.findViewById(R.id.editText_scientific_expression);
         resultTextView = root.findViewById(R.id.textView_scientific_answer);
         expressionEditText.setShowSoftInputOnFocus(false);
@@ -40,31 +42,9 @@ public class ScientificCalculatorFragment extends Fragment {
 
         liveResult = viewModel.getLiveResult();
 
-        root.findViewById(R.id.btn_log).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_ln).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_plus).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_minus).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_multiplication).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_division).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_power).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_factorial).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_sin).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_sinInverse).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_cos).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_cosInverse).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_tan).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_tanInverse).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_one).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_two).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_three).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_four).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_five).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_six).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_seven).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_eight).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_nine).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_zero).setOnClickListener(this::onInsertableButtonClick);
-        root.findViewById(R.id.btn_dot).setOnClickListener(this::onInsertableButtonClick);
+        addFragmentSpecificButtonListeners();
+        addListenersToNumberButtons();
+
 
         root.findViewById(R.id.btn_move_left).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +78,7 @@ public class ScientificCalculatorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 viewModel.clearExpression();
+                expressionEditText.setText("");
             }
         });
 
@@ -123,6 +104,38 @@ public class ScientificCalculatorFragment extends Fragment {
         int cursorPosition = ExpressionInputUtils.adjustCursor(expressionEditText.getSelectionStart(), expressionEditText.getText().toString());
         expressionEditText.getText().insert(cursorPosition, button.getText());
         viewModel.setExpression(expressionEditText.getText().toString());
+    }
+
+    protected void addFragmentSpecificButtonListeners() {
+        root.findViewById(R.id.btn_log).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_ln).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_plus).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_minus).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_multiplication).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_division).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_power).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_factorial).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_sin).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_sinInverse).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_cos).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_cosInverse).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_tan).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_tanInverse).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_dot).setOnClickListener(this::onInsertableButtonClick);
+
+    }
+
+    protected void addListenersToNumberButtons() {
+        root.findViewById(R.id.btn_one).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_two).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_three).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_four).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_five).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_six).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_seven).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_eight).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_nine).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_zero).setOnClickListener(this::onInsertableButtonClick);
     }
 
 }
