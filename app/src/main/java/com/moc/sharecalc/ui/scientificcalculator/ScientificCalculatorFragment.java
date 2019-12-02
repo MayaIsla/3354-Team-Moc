@@ -16,13 +16,13 @@ public class ScientificCalculatorFragment extends Fragment {
 
     private ScientificCalculatorViewModel viewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public void onViewCreate(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewModel =
                 ViewModelProviders.of(this).get(ScientificCalculatorViewModel.class);
         View root = inflater.inflate(R.layout.fragment_scientific_calculator, container, false);
-
         View btn = root.findViewById(R.id.btn_root);
+
         btn.setOnClickListener(new View.OnClickListener()  {
             public void onClick(View view)  {
                 onRootClick(view);
@@ -43,7 +43,7 @@ public class ScientificCalculatorFragment extends Fragment {
             }
 
         });
-        return root;
+        //return root;
     }
 
     public void onClickEqual(View view)  {

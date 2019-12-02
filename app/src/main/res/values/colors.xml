@@ -11,9 +11,9 @@
     <color name="equalSign">#ffffff</color>
 
     <!--color tags not found-->
-    <color name="horizontal_btn_color">#ffffff</color>
     <color name="white">#ffffff</color>
-    <color name="function_color">#ffb6c1</color>
-    <color name="number_color">#000000</color>
-    <color name="equal_color">#000000</color>
+    <color name="horizontal_btn_color">#404b69</color>
+    <color name="number_color">#ffb6c1</color>
+    <color name="function_color">#FF4081</color>
+    <color name="equal_color">#ff0000</color>
 </resources>
