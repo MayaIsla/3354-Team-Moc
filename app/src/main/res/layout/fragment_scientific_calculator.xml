@@ -41,6 +41,28 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_left_parenthesis"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_margin="@dimen/buttonMargin"
+                    android:layout_weight="1"
+                    android:background="@color/horizontal_btn_color"
+                    android:text="("
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize" />
+
+                <Button
+                    android:id="@+id/btn_right_parenthesis"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_margin="@dimen/buttonMargin"
+                    android:layout_weight="1"
+                    android:background="@color/horizontal_btn_color"
+                    android:text=")"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize" />
+
+                <Button
                     android:id="@+id/btn_power"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/button_height"

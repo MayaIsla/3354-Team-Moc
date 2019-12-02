@@ -14,9 +14,9 @@ public class ProgrammerCalculatorViewModel extends ScientificCalculatorViewModel
         try {
             int result = (int) Expression.evaluate(input).doubleValue();
             output += "= " + result;
-            output += "\n= 0b" + Integer.toBinaryString(result);
-            output += "\n= 0x" + Integer.toHexString(result);
-            output += "\n= 0o" + Integer.toOctalString(result);
+            output += "  =  0b" + Integer.toBinaryString(result);
+            output += "\n  =  0x" + Integer.toHexString(result);
+            output += "  =  0o" + Integer.toOctalString(result);
         } catch (Exception ex) {
             // Invalid input? Ignore, leave output as empty.
         }

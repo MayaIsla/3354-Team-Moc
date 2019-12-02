@@ -48,6 +48,8 @@ public class ScientificCalculatorFragment extends Fragment {
     }
 
     protected void addFragmentSpecificButtonListeners() {
+        root.findViewById(R.id.btn_left_parenthesis).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_right_parenthesis).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_log).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_ln).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_plus).setOnClickListener(this::onInsertableButtonClick);
@@ -63,6 +65,8 @@ public class ScientificCalculatorFragment extends Fragment {
         root.findViewById(R.id.btn_tan).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_tanInverse).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_dot).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_left_parenthesis).setOnClickListener(this::onInsertableButtonClick);
+        root.findViewById(R.id.btn_right_parenthesis).setOnClickListener(this::onInsertableButtonClick);
 
     }
 

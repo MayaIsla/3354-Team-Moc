@@ -21,8 +21,8 @@
         android:layout_height="50dp"
         android:layout_above="@+id/keypad"
         android:gravity="bottom|right"
-        android:padding="10dp"
-        android:textSize="@dimen/textSize" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/keypad"
@@ -80,7 +80,7 @@
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/horizontal_btn_color"
-                android:text="0a"
+                android:text="0o"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
