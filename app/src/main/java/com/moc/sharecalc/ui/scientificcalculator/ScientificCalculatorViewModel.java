@@ -31,14 +31,17 @@ public class ScientificCalculatorViewModel extends ViewModel {
 
     public void setExpression(String expression) {
         ((MutableLiveData<String>)getLiveExpressionInput()).setValue(expression);
+        String output = getOutputFromInput(expression);
+        ((MutableLiveData<String>)getLiveResult()).setValue(output);
+    }
 
+    protected String getOutputFromInput(String input) {
         String output = "";
         try {
-            output = ""+Expression.evaluate(expression);
+            output = "= "+Expression.evaluate(input);
         } catch (Exception ex) {
-            // Invalid input? Ignore, leave output as "".
+            // Invalid input? Ignore, leave output as empty.
         }
-
-        ((MutableLiveData<String>)getLiveResult()).setValue(output);
+        return output;
     }
 }
