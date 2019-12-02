@@ -5,24 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.programmercalculator.ProgrammerCalculatorFragment">
 
-    <TextView
-        android:id="@+id/calculation"
+
+    <EditText
+        android:id="@+id/editText_scientific_expression"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/answer"
-        android:gravity="bottom|right"
-        android:hint=" 0"
+        android:layout_above="@+id/textView_scientific_answer"
+        android:inputType="text"
         android:padding="10dp"
-        android:scrollbars="vertical"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/answer"
+        android:id="@+id/textView_scientific_answer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_above="@+id/keypad"
         android:gravity="bottom|right"
-        android:hint="= 0"
         android:padding="10dp"
         android:textSize="@dimen/textSize" />
 
