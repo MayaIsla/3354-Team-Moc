@@ -236,6 +236,17 @@
         android:background="@android:color/holo_blue_bright"
         android:layout_marginBottom="5dp"
         android:text="@string/AND" />
+    <Button
+        android:id="@+id/buttonOR"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonsl"
+        android:layout_toEndOf="@+id/buttonAND"
+
+        android:layout_marginStart="5dp"
+        android:background="@android:color/holo_blue_bright"
+        android:text="|" />
 
 
 
