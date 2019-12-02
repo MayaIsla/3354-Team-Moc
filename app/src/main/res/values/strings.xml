@@ -51,12 +51,12 @@
     <string name="nine">9</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
-    <string name="multiplication">x</string>
+    <string name="multiplication">*</string>
     <string name="division">/</string>
     <string name="dot">.</string>
     <string name="modulo">%</string>
     <string name="equal">=</string>
-    <string name="delete">DEL</string>
+    <string name="delete">⌫</string>
     <string name="clear">C</string>
     <string name="RAD">RAD</string>
     <string name="DEG">DEG</string>
@@ -71,9 +71,11 @@
     <string name="log">log</string>
     <string name="ln">ln</string>
     <string name="sin">sin</string>
-    <string name="sin_inverse">sin</string>
+    <string name="sin_inverse">sin⁻¹</string>
     <string name="cos">cos</string>
-    <string name="cos_inverse">cos</string>
+    <string name="cos_inverse">cos⁻¹</string>
     <string name="tan">tan</string>
-    <string name="tan_inverse">tan</string>
+    <string name="tan_inverse">tan⁻¹</string>
+    <string name="button_move_cursor_left">←</string>
+    <string name="button_move_cursor_right">→</string>
 </resources>

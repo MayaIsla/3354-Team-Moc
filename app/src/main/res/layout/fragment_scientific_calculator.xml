@@ -43,28 +43,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_RorD"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="@string/RAD"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
-                    android:id="@+id/btn_root"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="@string/root"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
                     android:id="@+id/btn_power"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/button_height"
@@ -76,18 +54,6 @@
                     android:textSize="@dimen/textSize" />
 
                 <Button
-                    android:id="@+id/btn_square"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="square"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
                     android:id="@+id/btn_factorial"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/button_height"
@@ -95,41 +61,6 @@
                     android:layout_weight="1"
                     android:background="@color/horizontal_btn_color"
                     android:text="@string/factorial"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
-                    android:id="@+id/btn_inverse"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="@string/inverse"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
-                    android:id="@+id/btn_pi"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="@string/pi"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textSize" />
-
-                <Button
-                    android:id="@+id/btn_e"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_margin="@dimen/buttonMargin"
-                    android:layout_weight="1"
-                    android:background="@color/horizontal_btn_color"
-                    android:text="@string/e_constant"
-                    android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
@@ -250,35 +181,35 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_clear"
+                android:id="@+id/btn_delete"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/function_color"
-                android:text="@string/clear"
+                android:text="@string/delete"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
             <Button
-                android:id="@+id/btn_plus_or_minus"
+                android:id="@+id/btn_move_left"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/function_color"
-                android:text="p/m"
+                android:text="@string/button_move_cursor_left"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
             <Button
-                android:id="@+id/btn_modulo"
+                android:id="@+id/btn_move_right"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/function_color"
-                android:text="@string/modulo"
+                android:text="@string/button_move_cursor_right"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
@@ -479,24 +410,23 @@
                 android:textSize="@dimen/textSize" />
 
             <Button
-                android:id="@+id/btn_delete"
+                android:id="@+id/btn_clear"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/number_color"
-                android:text="@string/delete"
+                android:text="@string/clear"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
             <Button
-                android:id="@+id/btn_equal"
+                android:id="@+id/btn_unused"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/buttonMargin"
                 android:layout_weight="1"
                 android:background="@color/equal_color"
-                android:text="@string/equal"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
