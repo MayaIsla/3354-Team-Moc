@@ -67,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button0"
+            android:layout_alignEnd="@+id/button0"
 
             android:layout_marginTop="5dp"
             android:background="@android:color/holo_blue_light"
