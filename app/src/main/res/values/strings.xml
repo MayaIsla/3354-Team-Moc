@@ -33,10 +33,6 @@
     <string name="minus">-</string>
     <string name="multiplication">*</string>
 
-    <string name="shiftLeft">&#60;&#60;</string>
-    <string name="shiftRight">>></string>
-    <string name="XOR">&#8853;</string>
-
     <string-array name="unit_options_array">
     	<item>Volume</item>
     	<item>Length</item>
