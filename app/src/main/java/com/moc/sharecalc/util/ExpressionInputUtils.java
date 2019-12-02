@@ -74,6 +74,9 @@ public class ExpressionInputUtils {
      * @return A nearby cursor position that is valid
      */
     public static int adjustCursor(int initialCursorPos, String expression) {
+        if (initialCursorPos == expression.length())
+            return initialCursorPos; // no need to move if it's at the very end (edge case)
+
         // Move the cursor right, then left
         // e.g. |5 -> 5| -> |5 (no effect on things that aren't long operators
         // e.g. 5c|os3 -> 5cos|3 -> 5|cos3 (ensures the cursor is not in the middle of a long operator)
