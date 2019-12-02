@@ -13,13 +13,23 @@ public class Expression {
     // The two parts of ⁻¹, used in cos⁻¹, sin⁻¹, etc. to denote inverse trig functions
     static final char INVERSE_INDICATOR_NEGATIVE = '⁻';
     static final char INVERSE_INDICATOR_ONE = '¹';
+    static final String INVERSE_INDICATOR_FULL = "" + INVERSE_INDICATOR_NEGATIVE + INVERSE_INDICATOR_ONE;
 
     // Regular expression for a left parenthesis
     private static final String RE_LPAREN = "\\(";
 
-    // Regular expression to match any trig function
+    // Regular expression to match operators that contain multiple letters
     // Uses non-capturing groups
-    static final private String RE_TRIG = "(?:sin)|(?:cos)|(?:tan)";
+    static final private String RE_WORD_OPERATOR = "(?:sin⁻¹)|(?:cos⁻¹)|(?:tan⁻¹)|(?:sin)|(?:cos)|(?:tan)|(?:log)|(?:ln)|(?:lg)";
+
+    // Regular expression to match operators that contain more than 1 character, letter or nonletter
+    // Uses non-capturing groups
+    static final private String RE_LONG_OPERATOR = RE_WORD_OPERATOR + "|(?:<<)|(?:>>)";
+
+    // Regular expression to match any operator
+    // Uses non-capturing groups
+    static final String RE_OPERATOR = RE_LONG_OPERATOR + "|[+*\\/^&|]";
+
 
 
     /**
@@ -38,7 +48,7 @@ public class Expression {
         //      |          Or
         //      RE_TRIG    Any trig function
         // )               End of capture group
-        final Pattern implicitMinus = Pattern.compile("-(" + RE_LPAREN + "|" + RE_TRIG + ")");
+        final Pattern implicitMinus = Pattern.compile("-(" + RE_LPAREN + "|" + RE_WORD_OPERATOR + ")");
         return implicitMinus.matcher(expression)
                 .replaceAll("-1*$1"); // -(capture group) -> -1*(capture group)
     }
@@ -65,7 +75,7 @@ public class Expression {
         //      RE_TRIG     Any trig function
         // )                End of capture group
         //
-        final Pattern implicitMult = Pattern.compile("([0-9.)])" + "(" + RE_LPAREN + "|" + RE_TRIG + ")");
+        final Pattern implicitMult = Pattern.compile("([0-9.)])" + "(" + RE_LPAREN + "|" + RE_WORD_OPERATOR + ")");
         return implicitMult.matcher(expression)
                 .replaceAll("$1*$2");
     }
