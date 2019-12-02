@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.moc.sharecalc.R;
+import com.moc.sharecalc.ui.ShareDataSingleton;
 import com.moc.sharecalc.unitutil.Unit;
 import com.moc.sharecalc.unitutil.UnitType;
 
@@ -185,7 +186,13 @@ public class UnitConverterFragment extends Fragment {
 
     private void populateResult() {
         if (inputUnit.getValue() != null && inputAmount.getValue() != null)
-            resultTextView.setText(Unit.getConversions(inputUnit.getValue(), inputAmount.getValue()));
+        {
+            String result = Unit.getConversions(inputUnit.getValue(), inputAmount.getValue());
+            resultTextView.setText(result);
+            ShareDataSingleton.getInstance().setCurrentInput(inputAmount.getValue().toString() +" " +inputUnit.getValue().toString());
+            ShareDataSingleton.getInstance().setCurrentResult(result);
+        }
+
     }
 
 }
