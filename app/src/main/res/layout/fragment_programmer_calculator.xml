@@ -38,6 +38,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--Natural Log Button-->
             <Button
                 android:id="@+id/btn_lg"
                 android:layout_width="0dp"
@@ -49,6 +50,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Binary Button-->
             <Button
                 android:id="@+id/btn_0b"
                 android:layout_width="0dp"
