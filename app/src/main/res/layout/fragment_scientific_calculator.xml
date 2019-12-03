@@ -40,6 +40,7 @@
                 android:layout_height="@dimen/layout_height"
                 android:orientation="horizontal">
 
+                <!--Left Parenthesis Button-->
                 <Button
                     android:id="@+id/btn_left_parenthesis"
                     android:layout_width="0dp"
@@ -51,6 +52,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Right Parenthesis Button-->
                 <Button
                     android:id="@+id/btn_right_parenthesis"
                     android:layout_width="0dp"
@@ -62,6 +64,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Power Button-->
                 <Button
                     android:id="@+id/btn_power"
                     android:layout_width="0dp"
@@ -73,6 +76,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Factorial Button-->
                 <Button
                     android:id="@+id/btn_factorial"
                     android:layout_width="0dp"
@@ -84,6 +88,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Log Button-->
                 <Button
                     android:id="@+id/btn_log"
                     android:layout_width="0dp"
@@ -97,6 +102,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--ln Button-->
                 <Button
                     android:id="@+id/btn_ln"
                     android:layout_width="0dp"
@@ -110,6 +116,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--sin Button-->
                 <Button
                     android:id="@+id/btn_sin"
                     android:layout_width="0dp"
@@ -124,6 +131,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Inverse Sin Button-->
                 <Button
                     android:id="@+id/btn_sinInverse"
                     android:layout_width="0dp"
@@ -137,6 +145,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Cos Button-->
                 <Button
                     android:id="@+id/btn_cos"
                     android:layout_width="0dp"
@@ -150,6 +159,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Inverse Cos Button-->
                 <Button
                     android:id="@+id/btn_cosInverse"
                     android:layout_width="0dp"
@@ -163,6 +173,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Tan Button-->
                 <Button
                     android:id="@+id/btn_tan"
                     android:layout_width="0dp"
@@ -177,6 +188,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSize" />
 
+                <!--Inverse Tan Button-->
                 <Button
                     android:id="@+id/btn_tanInverse"
                     android:layout_width="0dp"
@@ -200,6 +212,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--Delete Button-->
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="0dp"
@@ -211,6 +224,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Move Left Button-->
             <Button
                 android:id="@+id/btn_move_left"
                 android:layout_width="0dp"
@@ -222,6 +236,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Move Right Button-->
             <Button
                 android:id="@+id/btn_move_right"
                 android:layout_width="0dp"
@@ -233,6 +248,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Division Button-->
             <Button
                 android:id="@+id/btn_division"
                 android:layout_width="0dp"
@@ -252,6 +268,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--7 Button-->
             <Button
                 android:id="@+id/btn_seven"
                 android:layout_width="0dp"
@@ -263,6 +280,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--8 Button-->
             <Button
                 android:id="@+id/btn_eight"
                 android:layout_width="0dp"
@@ -274,6 +292,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--9 Button-->
             <Button
                 android:id="@+id/btn_nine"
                 android:layout_width="0dp"
@@ -285,6 +304,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Multiplication Button-->
             <Button
                 android:id="@+id/btn_multiplication"
                 android:layout_width="0dp"
@@ -304,6 +324,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--4 Button-->
             <Button
                 android:id="@+id/btn_four"
                 android:layout_width="0dp"
@@ -315,6 +336,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--5 Button-->
             <Button
                 android:id="@+id/btn_five"
                 android:layout_width="0dp"
@@ -326,6 +348,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--6 Button-->
             <Button
                 android:id="@+id/btn_six"
                 android:layout_width="0dp"
@@ -337,6 +360,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Minus Button-->
             <Button
                 android:id="@+id/btn_minus"
                 android:layout_width="0dp"
@@ -356,6 +380,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--1 Button-->
             <Button
                 android:id="@+id/btn_one"
                 android:layout_width="0dp"
@@ -367,6 +392,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--2 Button-->
             <Button
                 android:id="@+id/btn_two"
                 android:layout_width="0dp"
@@ -378,6 +404,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--3 Button-->
             <Button
                 android:id="@+id/btn_three"
                 android:layout_width="0dp"
@@ -389,6 +416,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Plus Button-->
             <Button
                 android:id="@+id/btn_plus"
                 android:layout_width="0dp"
@@ -407,6 +435,7 @@
             android:layout_height="@dimen/layout_height"
             android:orientation="horizontal">
 
+            <!--Dot Button-->
             <Button
                 android:id="@+id/btn_dot"
                 android:layout_width="0dp"
@@ -418,6 +447,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--0 Button-->
             <Button
                 android:id="@+id/btn_zero"
                 android:layout_width="0dp"
@@ -429,6 +459,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Clear Button-->
             <Button
                 android:id="@+id/btn_clear"
                 android:layout_width="0dp"
@@ -440,6 +471,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/textSize" />
 
+            <!--Unused Button-->
             <Button
                 android:id="@+id/btn_unused"
                 android:layout_width="0dp"
