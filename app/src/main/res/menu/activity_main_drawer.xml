@@ -5,15 +5,19 @@
 
     <group android:checkableBehavior="single">
 
-
+        <!--Scientific Calculator Tab-->
         <item
             android:id="@+id/nav_scientific_calculator"
             android:icon="@drawable/ic_flask"
             android:title="Scientific Calculator" />
+
+        <!--Programmer Calculator Tab-->
         <item
             android:id="@+id/nav_programmer_calculator"
             android:icon="@drawable/ic_glasses"
             android:title="@string/menu_programmer_calculator" />
+
+        <!--Unit Converter Tab-->
         <item
             android:id="@+id/nav_unit_converter"
             android:icon="@drawable/ic_x"

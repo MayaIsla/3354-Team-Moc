@@ -11,6 +11,10 @@ public class ProgrammerCalculatorViewModel extends ScientificCalculatorViewModel
     @Override
     protected String getOutputFromInput(String input) {
         String output = "";
+
+        //Automatically display the output in decimal, binary, hex, and octal when input is valid, respectively.
+        //Decimal and binary will always print on the first 2 lines
+        //Hex and octal will always print on the second 2 lines
         try {
             int result = (int) Expression.evaluate(input).doubleValue();
             output += "= " + result;
