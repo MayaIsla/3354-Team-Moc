@@ -38,9 +38,12 @@ class UnitConversionTests {
                 Arguments.of(55, Unit.METERS, 55, Unit.METERS),
                 Arguments.of(55, Unit.METERS, 55E2, Unit.CENTIMETERS),
                 Arguments.of(55, Unit.FEET, 660, Unit.INCHES),
+                Arguments.of(55, Unit.FEET, 660E2, Unit.INCHES),
                 Arguments.of(55E-8, Unit.LIGHTSECONDS, 1.803E2, Unit.YARDS),
+                Arguments.of(55, Unit.LIGHTSECONDS, 5, Unit.YARDS),
                 Arguments.of(55E-5, Unit.MILES, 8.851E2, Unit.MILLIMETERS),
                 Arguments.of(55E-5, Unit.DECAMETERS, 5500, Unit.MICROMETERS)
+
 
                 );
     }
