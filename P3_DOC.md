@@ -8,6 +8,8 @@
 
 **Implementation:** We created a ShareDataSingleton class with a static getInstance() method. Whenever any of the fragments' calculations changed, they would call ShareDataSingleton.getInstance().setCurrentInput() and ShareDataSingleton.getInstance().setCurrentResult(). This way, the MainActivity's FAB event handler could call ShareDataSingleton.getInstance().getCurrentInput() and ShareDataSingleton.getInstance().getCurrentResult().
 
+**Location:** com.moc.sharecalc.ui.ShareDataSingleton
+
 ## 2. Test classes
 
 ## 3. Build instructions & functionalities
