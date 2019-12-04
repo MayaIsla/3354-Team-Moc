@@ -12,4 +12,15 @@
 
 ## 2. Test classes
 
+### ExpressionTests class (com.moc.sharecalc.util) - test the expression top-down parser and evaluation engine (50 tests by Jonathan, 3 tests by Alex)
+* makeNegationExplicitTest - tests Expression.makeNegationExplicit (2 tests by Jonathan)
+* makeMultiplicationExplicit - tests Expression.makeMultiplicationExplicit (4 tests by Jonathan)
+* makeSubtractionUseAddition - tests Expression.makeSubtractionUseAddition (3 tests by Jonathan)
+* preprocessExpression - tests Expression.preprocessExpression (3 tests by Jonathan)
+* GetTokenFromStringTests - nested test class to test Expression.getTokensFromString (12 tests by Jonathan)
+* FactorialTests - nested test class to test factorial operation in an expression (12 tests by Jonathan)
+* evaluationTests - test Expression.evaluate (8 tests by Jonathan, 3 tests by Alex)
+* bitwiseTests - test Expression.evaluate for bitwise operators (5 tests by Jonathan)
+  
+
 ## 3. Build instructions & functionalities
