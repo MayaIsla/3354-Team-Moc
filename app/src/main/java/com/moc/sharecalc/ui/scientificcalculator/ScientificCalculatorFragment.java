@@ -28,7 +28,6 @@ public class ScientificCalculatorFragment extends Fragment {
     protected LiveData<String> liveResult;
     protected View root;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -47,6 +46,9 @@ public class ScientificCalculatorFragment extends Fragment {
         viewModel.setExpression(expressionEditText.getText().toString());
     }
 
+    /**
+     * View root finds the View of the button and adds OnClickListeners. Allowing them to be clicked
+     */
     protected void addFragmentSpecificButtonListeners() {
         root.findViewById(R.id.btn_left_parenthesis).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_right_parenthesis).setOnClickListener(this::onInsertableButtonClick);
@@ -70,6 +72,9 @@ public class ScientificCalculatorFragment extends Fragment {
 
     }
 
+    /**
+     * Performs the same function as addFragmentSpecificButtonListener, except for the Number Buttons.
+     */
     protected void addListenersToNumberButtons() {
         root.findViewById(R.id.btn_one).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_two).setOnClickListener(this::onInsertableButtonClick);
