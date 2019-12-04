@@ -36,6 +36,8 @@ public class ScientificCalculatorViewModel extends ViewModel {
         ((MutableLiveData<String>)getLiveResult()).setValue(output);
     }
 
+    //Automatically print the output if the input is valid
+    //If input is invalid, no output is displayed
     protected String getOutputFromInput(String input) {
         String output = "";
         try {
