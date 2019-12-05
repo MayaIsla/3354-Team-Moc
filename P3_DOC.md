@@ -12,7 +12,8 @@
 
 ## 2. Test classes
 
-### ExpressionTests class (com.moc.sharecalc.util) - test the expression top-down parser and evaluation engine (50 tests by Jonathan, 3 tests by Alex)
+### A. ExpressionTests class (com.moc.sharecalc.util)
+This test class tests the Expression.evaluate() method as well as its many helper functions (e.g. preprocessors, top-down parser, etc.) **50 test cases by Jonathan, 3 test cases by Alex.**
 * makeNegationExplicitTest - tests Expression.makeNegationExplicit (2 tests by Jonathan)
 * makeMultiplicationExplicit - tests Expression.makeMultiplicationExplicit (4 tests by Jonathan)
 * makeSubtractionUseAddition - tests Expression.makeSubtractionUseAddition (3 tests by Jonathan)
