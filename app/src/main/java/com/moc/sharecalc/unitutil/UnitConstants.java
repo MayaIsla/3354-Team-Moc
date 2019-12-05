@@ -7,8 +7,6 @@ package com.moc.sharecalc.unitutil;
  */
 public class UnitConstants {
 
-    //@TODO: Remove when all conversions defined
-    static final double TODO__ADD_ACTUAL_VALUE = 0;
 
 
     // Temperature constants

@@ -10,7 +10,6 @@ import java.util.Locale;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SCALE;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_F__SHIFT;
 import static com.moc.sharecalc.unitutil.UnitConstants.C_TO_K__SHIFT;
-import static com.moc.sharecalc.unitutil.UnitConstants.TODO__ADD_ACTUAL_VALUE;
 
 
 /**
@@ -191,5 +190,9 @@ public enum Unit {
     }
 
 
+    /**
+     * Gets the category of the unit
+     * @return the category/type of the unit, e.g. TEMPERATURE
+     */
     public UnitType getType() {return _type;}
 }
