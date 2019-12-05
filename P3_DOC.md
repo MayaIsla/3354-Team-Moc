@@ -18,7 +18,7 @@ This test class (and its two nested test classes, bolded below) tests the Expres
 * makeMultiplicationExplicit - tests Expression.makeMultiplicationExplicit (4 tests by Jonathan)
 * makeSubtractionUseAddition - tests Expression.makeSubtractionUseAddition (3 tests by Jonathan)
 * preprocessExpression - tests Expression.preprocessExpression (3 tests by Jonathan)
-* **GetTokenFromStringTests** - **nested test class** to test Expression.getTokensFromString (12 tests by Jonathan)
+* **GetTokenFromStringTests** - **nested test class** to test Expression.getTokensFromString (12 tests by Jonathan, 1 test by Alex)
 * **FactorialTests** - **nested test class** to test factorial operation in an expression (12 tests by Jonathan)
 * evaluationTests - tests Expression.evaluate (8 tests by Jonathan, 3 tests by Alex)
 * bitwiseTests - tests Expression.evaluate for bitwise operators (5 tests by Jonathan)
