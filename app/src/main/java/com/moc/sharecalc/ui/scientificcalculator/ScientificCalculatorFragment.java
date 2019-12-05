@@ -85,6 +85,10 @@ public class ScientificCalculatorFragment extends Fragment {
         root.findViewById(R.id.btn_zero).setOnClickListener(this::onInsertableButtonClick);
     }
 
+    /**
+     * In here the buttons pertaining to move left, move right, delete, and clear are instantiated.
+     * liveResult updates the viewModel of the result accordingly to the changes.
+     */
     protected void setup() {
         expressionEditText = root.findViewById(R.id.editText_scientific_expression);
         resultTextView = root.findViewById(R.id.textView_scientific_answer);

@@ -8,6 +8,12 @@ import com.moc.sharecalc.util.Expression;
 
 public class ProgrammerCalculatorViewModel extends ScientificCalculatorViewModel {
 
+    /**
+     * Method that evaluates the argument and displays the output in proper format
+     *
+     * @param input - String that contains the expression to be evaluated
+     * @return output - Displays the output of the input String
+     */
     @Override
     protected String getOutputFromInput(String input) {
         String output = "";
