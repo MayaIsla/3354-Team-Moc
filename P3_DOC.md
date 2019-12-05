@@ -13,7 +13,7 @@
 ## 2. Test classes
 
 ### 2.1. com.moc.sharecalc.util.ExpressionTests 
-This test class (and its two nested test classes, bolded below) tests the Expression.evaluate() method as well as its many helper functions (e.g. preprocessors, top-down parser, etc.) **50 test cases by Jonathan, 3 test cases by Alex.**
+This test class (and its two nested test classes, bolded below) tests the Expression.evaluate() method as well as its many helper functions (e.g. preprocessors, top-down parser, etc.) **50 test cases by Jonathan, 4 test cases by Alex E.**
 * makeNegationExplicitTest - tests Expression.makeNegationExplicit (2 tests by Jonathan)
 * makeMultiplicationExplicit - tests Expression.makeMultiplicationExplicit (4 tests by Jonathan)
 * makeSubtractionUseAddition - tests Expression.makeSubtractionUseAddition (3 tests by Jonathan)
