@@ -62,7 +62,4 @@ class ExpressionInputUtilsTests {
         assertEquals(cursorOutputPos, ExpressionInputUtils.moveCursorLeft(cursorInputPos, expression));
     }
 
-    @Test
-    void adjustCursor() {
-    }
 }
