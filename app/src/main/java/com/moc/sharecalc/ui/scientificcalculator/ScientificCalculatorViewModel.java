@@ -12,6 +12,11 @@ public class ScientificCalculatorViewModel extends ViewModel {
     private MutableLiveData<String> _liveExpressionInput;
     private MutableLiveData<String> _liveResult;
 
+    /**
+     * This method checks if _liveExpressionInput is null, then returns the variable
+     *
+     * @return _liveExpressionInput - LiveData<String> That contains the expression the user is inputting
+     */
     public LiveData<String> getLiveExpressionInput() {
         if (_liveExpressionInput == null) {
             _liveExpressionInput = new MutableLiveData<String>();
@@ -20,6 +25,7 @@ public class ScientificCalculatorViewModel extends ViewModel {
         return _liveExpressionInput;
     }
 
+    //Returns the _liveResult, if it is null then it returns a whitespace, which is not null
     public LiveData<String> getLiveResult() {
         if (_liveResult == null) {
             _liveResult = new MutableLiveData<>();
@@ -28,8 +34,10 @@ public class ScientificCalculatorViewModel extends ViewModel {
         return _liveResult;
     }
 
+    //Clears the LiveData<String>
     public void clearExpression() {setExpression("");}
 
+    //Takes the string expression, sets getLiveExpressionInput to that value, and is evaluated
     public void setExpression(String expression) {
         ((MutableLiveData<String>)getLiveExpressionInput()).setValue(expression);
         String output = getOutputFromInput(expression);
