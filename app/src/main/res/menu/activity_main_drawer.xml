@@ -25,11 +25,5 @@
 
 
     </group>
-    <item android:title=" ">
-        <menu>
-            <item
-                android:title="   " />
-        </menu>
-    </item>
 
 </menu>
