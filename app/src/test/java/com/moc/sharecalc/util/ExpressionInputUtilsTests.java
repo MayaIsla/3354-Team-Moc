@@ -27,7 +27,7 @@ class ExpressionInputUtilsTests {
         assertEquals(expectMatches, ExpressionInputUtils.PATTERN_VALID_AT_CURSOR.matcher(input).lookingAt());
     }
 
-
+    //Tests the cursor character to assert that it has moved right and still a valid input string
     @ParameterizedTest
     @CsvSource({
             "'',0,0", // empty string
@@ -45,6 +45,7 @@ class ExpressionInputUtilsTests {
         assertEquals(cursorOutputPos, ExpressionInputUtils.moveCursorRight(cursorInputPos, expression));
     }
 
+    //Tests the cursor character to assert that is has moved left and still a valid input string
     @ParameterizedTest
     @CsvSource({
             "'',0,0", // empty string
