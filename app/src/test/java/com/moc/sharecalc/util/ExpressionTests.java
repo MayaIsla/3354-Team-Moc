@@ -50,7 +50,8 @@ class ExpressionTests {
     @CsvSource({
             "10-2sin3,10+-2*sin3",
             "8*2-4(1+3),8*2+-4*(1+3)",
-            "-.5(3+6)cos0,-.5*(3+6)*cos0"
+            "-.5(3+6)cos0,-.5*(3+6)*cos0",
+            "76-5log3, 10-2*cos5"
     })
     void preprocessExpression(String input, String expectedOutput) {
         assertEquals(expectedOutput, Expression.preprocessExpression(input));
@@ -77,7 +78,7 @@ class ExpressionTests {
             assertFalse(it.hasNext());
         }
 
-        @ParameterizedTest
+        @ParameterizedTest//parameter tests for hexadecimal and octal formulas
         @CsvSource({
                 "0b101,5",
                 "0x11,17",
@@ -100,7 +101,15 @@ class ExpressionTests {
             assertFalse(it.hasNext());
         }
 
-        @Test
+        @Test//scientiic operand iterator
+        void scientificOperandTest(){
+            Iterator<Token> it = Expression.getTokensFromString("10E-10").iterator();
+            assertEquals(it.next().getOperand(), 10E-10);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
+        @Test //subtraction test case for terminator iterator
         void subtractionTest() {
             Iterator<Token> it = Expression.getTokensFromString("5+-2").iterator();
             assertEquals(it.next().getOperand(), 5);
@@ -113,7 +122,7 @@ class ExpressionTests {
 
 
         @Test
-        void operatorsTest() {
+        void operatorsTest() {//log/ln iterator
             Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹loglnlg").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.ADD);
             assertEquals(it.next().getOperator(), BinaryOperator.MULTIPLY);
@@ -136,7 +145,7 @@ class ExpressionTests {
         }
 
         @Test
-        void bitwiseOperatorsTest() {
+        void bitwiseOperatorsTest() {//XOR, OR, AND and shiftr/r set operator
             Iterator<Token> it = Expression.getTokensFromString("<<>>&|⊕").iterator();
             assertEquals(it.next().getOperator(), BinaryOperator.SHIFTL);
             assertEquals(it.next().getOperator(), BinaryOperator.SHIFTR);
@@ -149,7 +158,7 @@ class ExpressionTests {
 
 
         @Test
-        void basicExpressionTest() {
+        void basicExpressionTest() { //basic expression tests to get tokens from string
             Iterator<Token> it = Expression.getTokensFromString("5^sin(3*4)").iterator();
             assertEquals(it.next().getOperand(), 5);
             assertEquals(it.next().getOperator(), BinaryOperator.EXPONENTIATE);
@@ -181,7 +190,7 @@ class ExpressionTests {
         }
 
 
-        @Test
+        @Test //test case for advanced expressions with exponents, binary operators and scientific formulas
         void advancedExpressionTest() {
             Iterator<Token> it = Expression.getTokensFromString("1+23*4^5(6+-7)/8*tan(9)").iterator();
             assertEquals(it.next().getOperand(), 1);
@@ -204,12 +213,14 @@ class ExpressionTests {
             assertEquals(it.next().getOperand(), 9);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
+            assertEquals(it.next().getOperand(), 10);
             assertFalse(it.hasNext());
         }
 
     }
 
-    @Nested
+    @Nested //test case for factorials
     class FactorialTests {
 
         @ParameterizedTest
@@ -224,7 +235,7 @@ class ExpressionTests {
             assertEquals(output, UnaryOperator.FACTORIAL.operate(input));
         }
 
-        @ParameterizedTest
+        @ParameterizedTest//parameter test for calculator
         @CsvSource({
                 "-1",
                 "-5"
@@ -267,7 +278,7 @@ class ExpressionTests {
         assertEquals(result, Expression.evaluate(expression));
     }
 
-    @ParameterizedTest
+    @ParameterizedTest //more example test cases
     @CsvSource({
             "1<<4,16",
             "19>>2,4",
