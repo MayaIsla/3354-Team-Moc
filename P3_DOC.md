@@ -36,6 +36,10 @@ This test class tests Unit.convert with the various unit categories.
   
 
 ## 3. Build instructions & functionalities
+Clone the repository straight into Android Studio using Git to have all the files recognized immediately. 
+If the Build was successfully compiled then the app is ready to go. 
+It is recommended to setup the emulator or phone with the specifications written below for best performance. 
+
 Note: This app does not target phones with small screens as fitting the buttons to such a screen is impractical. When running the app on an emulator or device, we recommend using a target device such as the Pixel 2 or Nexus 5X or a similar device.
 
 Note: It is recommended that the emulator or phone running the app be on Android API Level 28 or above. API Level 28 is the target Android OS of the app. However, API Level 24 is the minimum to run the app.
