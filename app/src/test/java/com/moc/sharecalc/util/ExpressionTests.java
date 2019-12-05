@@ -15,6 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ExpressionTests {
 
+    /**
+     * Unit test for explicit multiplication of a negative expression. Compares the output of two multiplication
+     *expressions, one with explicit multiplication (i.e. -1*log10) and the other with implicit (i.e. -log10).
+     *
+     * @param input - String that contains the inputted expression
+     * @param expectedOutput - String that contains the expected output
+     */
     @ParameterizedTest
     @CsvSource({
             "-sin(5),-1*sin(5)",
@@ -24,7 +31,13 @@ class ExpressionTests {
         assertEquals(expectedOutput, Expression.makeNegationExplicit(input));
     }
 
-
+    /**
+     * Unit test for explicit multiplication. Compares two expressions, if they are equal, then explicit multiplication
+     * was successful.
+     *
+     * @param input - String that contains the input expression
+     * @param expectedOutput - String that contains the expected output
+     */
     @ParameterizedTest
     @CsvSource({
             "2sin(5),2*sin(5)",
