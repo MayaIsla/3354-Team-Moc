@@ -69,6 +69,7 @@ public class UnitConverterFragment extends Fragment {
         return root;
     }
 
+    /** Sets up all the input and spinner event handlers */
     private void setupEventHandlers() {
         // Event handler: On unit type spinner selection change
         unitTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -123,6 +124,7 @@ public class UnitConverterFragment extends Fragment {
         });
     }
 
+    /** Sets up the LiveData observers */
     private void setupObservers() {
         // Unit type observer
         inputUnitType.observe(this, new Observer<UnitType>() {
@@ -149,6 +151,7 @@ public class UnitConverterFragment extends Fragment {
         });
     }
 
+    /** Populates the UnitTypesSpinner using UnitTypes enum */
     private void populateUnitTypesSpinner() {
         UnitType[] types = UnitType.values();
         ArrayList<String> typeStrings = new ArrayList<String>();
@@ -166,6 +169,7 @@ public class UnitConverterFragment extends Fragment {
         } catch (Exception ex) { /* No value yet, ignore */ }
     }
 
+    /** Populates Units spinner with matching Units from the selected UnitType */
     private void populateUnitsSpinner() {
         Unit[] units = Unit.values();
         ArrayList<String> unitStrings = new ArrayList<String>();
@@ -184,6 +188,7 @@ public class UnitConverterFragment extends Fragment {
         } catch (Exception ex) { /* No value yet, ignore */ }
     }
 
+    /** Updates the TextView and ShareDataSingleton to reflect new results */
     private void populateResult() {
         if (inputUnit.getValue() != null && inputAmount.getValue() != null)
         {
