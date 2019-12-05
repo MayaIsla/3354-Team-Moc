@@ -31,7 +31,7 @@ This test class tests the ExpressionInputUtils methods. **28 tests by Jonathan**
 
 ### 2.3. com.moc.sharecalc.unitutil.UnitConversionTests
 This test class tests Unit.convert with the various unit categories.
-**15 tests by Jonathan, 2 tests by Maya, 16 tests by Alexis Z.
+**15 tests by Jonathan, 2 tests by Maya, 16 tests by Alexis Z.**
 
   
 
