@@ -34,7 +34,7 @@ public class ProgrammerCalculatorFragment extends ScientificCalculatorFragment {
         return root;
     }
 
-    //Assign listeners for all the operation buttons in this instance
+    /**Assign listeners for all the operation buttons in this instance*/
     protected void addFragmentSpecificButtonListeners() {
         root.findViewById(R.id.btn_left_parenthesis).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_right_parenthesis).setOnClickListener(this::onInsertableButtonClick);
@@ -47,7 +47,7 @@ public class ProgrammerCalculatorFragment extends ScientificCalculatorFragment {
         root.findViewById(R.id.btn_0x).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_0b).setOnClickListener(this::onInsertableButtonClick);
     }
-    //Assign listeners for all the letter buttons in this instance
+    /**Assign listeners for all the letter buttons in this instance*/
     protected void addListenersToNumberButtons() {
         super.addListenersToNumberButtons();
         root.findViewById(R.id.btn_A).setOnClickListener(this::onInsertableButtonClick);

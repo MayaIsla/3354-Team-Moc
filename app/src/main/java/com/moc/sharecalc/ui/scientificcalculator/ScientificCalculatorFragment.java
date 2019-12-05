@@ -39,6 +39,7 @@ public class ScientificCalculatorFragment extends Fragment {
         return root;
     }
 
+    /**Called on buttons that should insert text, like '5' or 'sin'*/
     public void onInsertableButtonClick(View v) {
         expressionEditText.requestFocus();
         Button button = (Button) v;
@@ -47,7 +48,7 @@ public class ScientificCalculatorFragment extends Fragment {
         viewModel.setExpression(expressionEditText.getText().toString());
     }
 
-    //Assign listeners for all the operation buttons in this instance
+    /**Assign listeners for all the operation buttons in this instance*/
     protected void addFragmentSpecificButtonListeners() {
         root.findViewById(R.id.btn_left_parenthesis).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_right_parenthesis).setOnClickListener(this::onInsertableButtonClick);
@@ -71,7 +72,7 @@ public class ScientificCalculatorFragment extends Fragment {
 
     }
 
-    //Assign listeners for all the number buttons in this instance
+    /**Assign listeners for all the number buttons in this instance*/
     protected void addListenersToNumberButtons() {
         root.findViewById(R.id.btn_one).setOnClickListener(this::onInsertableButtonClick);
         root.findViewById(R.id.btn_two).setOnClickListener(this::onInsertableButtonClick);

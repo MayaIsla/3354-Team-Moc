@@ -20,18 +20,35 @@ public class ShareDataSingleton {
         return _instance;
     }
 
+    /**
+     * Returns the current user input
+     * @return the current user input string
+     */
     public String getCurrentInput() {
         return _currentInput;
     }
 
+    /**
+     * Modifies the user's input
+     * @param _currentInput the new input
+     */
     public void setCurrentInput(String _currentInput) {
         this._currentInput = _currentInput;
     }
 
+    /**
+     * Gets the current calculation result
+     * @return new calculation result
+     */
     public String getCurrentResult() {
         return _currentResult;
     }
 
+    /**
+     * Sets the current calculation result.
+     * Set by fragments on calculation change.
+     * @param _currentResult the current calculation result
+     */
     public void setCurrentResult(String _currentResult) {
         this._currentResult = _currentResult;
     }
