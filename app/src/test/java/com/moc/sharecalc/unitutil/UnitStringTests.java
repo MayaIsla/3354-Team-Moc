@@ -23,7 +23,7 @@ public class UnitStringTests {
         e.g. Unit.KILOGRAMS --> 'kilograms'
      */
     @Test
-    public void correctMassWeightSpinnerTest()  {
+    public void massWeightSpinnerTest()  {
         assertEquals(Unit.KILOGRAMS.toString(), "kilograms");
         assertEquals(Unit.GRAMS.toString(), "grams");
         assertEquals(Unit.MILLIGRAMS.toString(), "milligrams");
