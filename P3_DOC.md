@@ -38,6 +38,8 @@ This test class tests Unit.convert with the various unit categories.
 ## 3. Build instructions & functionalities
 Note: This app does not target phones with small screens as fitting the buttons to such a screen is impractical. When running the app on an emulator or device, we recommend using a target device such as the Pixel 2 or Nexus 5X or a similar device.
 
+Note: It is recommended that the emulator or phone running the app be on Android API Level 26 or above. API Level 26 is the base target Android OS of the app.
+
 *Using scientific calculator, the user will be able to slide the functions such as SIN, LOG and COS. While getting an immediate value as the characters are chosen while it's parsing. 
 
 *Unit converter functions where a specific conversion is chosen and will give all converting functions for the following numbers.
