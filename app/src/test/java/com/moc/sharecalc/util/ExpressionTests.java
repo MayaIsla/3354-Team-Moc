@@ -50,7 +50,8 @@ class ExpressionTests {
     @CsvSource({
             "10-2sin3,10+-2*sin3",
             "8*2-4(1+3),8*2+-4*(1+3)",
-            "-.5(3+6)cos0,-.5*(3+6)*cos0"
+            "-.5(3+6)cos0,-.5*(3+6)*cos0",
+            "76-5log3, 10-2*cos5"
     })
     void preprocessExpression(String input, String expectedOutput) {
         assertEquals(expectedOutput, Expression.preprocessExpression(input));
@@ -96,6 +97,14 @@ class ExpressionTests {
         void complicatedOperandTest() {
             Iterator<Token> it =  Expression.getTokensFromString("-5.2E-3").iterator();
             assertEquals(it.next().getOperand(), -5.2E-3);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
+        @Test
+        void scientificOperandTest(){
+            Iterator<Token> it = Expression.getTokensFromString("10E-10").iterator();
+            assertEquals(it.next().getOperand(), 10E-10);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
             assertFalse(it.hasNext());
         }
@@ -187,6 +196,8 @@ class ExpressionTests {
             assertEquals(it.next().getOperand(), 9);
             assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
             assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
+            assertEquals(it.next().getOperand(), 10);
             assertFalse(it.hasNext());
         }
 
