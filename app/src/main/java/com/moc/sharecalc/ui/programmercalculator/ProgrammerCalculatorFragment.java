@@ -15,6 +15,15 @@ import com.moc.sharecalc.ui.scientificcalculator.ScientificCalculatorViewModel;
 
 public class ProgrammerCalculatorFragment extends ScientificCalculatorFragment {
 
+    /**
+     * Takes the three parameters and creates the fragment for Programmer Calculator, calling the setup method
+     * before returning to View root.
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return View root
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
