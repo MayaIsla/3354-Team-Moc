@@ -35,6 +35,11 @@ This test class tests Unit.convert with the various unit categories.
 
 ### 2.4. com.moc.sharecalc.unitutil.UnitStringTests 
 This test class tests the enum Unit method toString() to assure that the units spinner on the Unit Converter UI is being properly dynamically populated from enum unit. **34 tests by Alexis Vu** 
+* massWeightSpinnerTests - test Unit.[MASS_AND_WEIGHT].toString() (7 tests by Alexis Vu)
+* temperatureSpinnerTests - test Unit.[TEMPERATURE].toString() (3 tests by Alexis Vu)
+* lengthSpinnerTests - test Unit.[LENGTH].toString() (15 tests by Alexis Vu)
+* volumeSpinnerTests - test Unit.[VOLUME].toString() (9 tests by Alexis Vu)
+
 
 ## 3. Build instructions & functionalities
 Note: This app does not target phones with small screens as fitting the buttons to such a screen is impractical. When running the app on an emulator or device, we recommend using a target device such as the Pixel 2 or Nexus 5X or a similar device.
