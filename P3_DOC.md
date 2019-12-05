@@ -36,7 +36,7 @@ This test class tests Unit.convert with the various unit categories.
   
 
 ## 3. Build instructions & functionalities
-In unit testing in debugging, UI functions are inaccessible in smaller resolutions. Using bigger resolution screens such as the Pixel 2 will work. 
+Note: This app does not target phones with small screens as fitting the buttons to such a screen is impractical. When running the app on an emulator or device, we recommend using a target device such as the Pixel 2 or Nexus 5X or a similar device.
 
 *Using scientific calculator, the user will be able to slide the functions such as SIN, LOG and COS. While getting an immediate value as the characters are chosen while it's parsing. 
 
