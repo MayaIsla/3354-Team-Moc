@@ -141,7 +141,8 @@ class ExpressionTests {
         }
 
 
-
+        //Unit test for operators. A long iterator containing tokens parses for operators and asserts that they are
+        //valid operators.
         @Test
         void operatorsTest() {//log/ln iterator
             Iterator<Token> it = Expression.getTokensFromString("+*/^()!sincostansin⁻¹cos⁻¹tan⁻¹loglnlg").iterator();
@@ -285,8 +286,14 @@ class ExpressionTests {
             assertEquals(result, Expression.evaluate(expression));
         }
     }
-    
 
+    /**
+     * Unit test for general expressions to assert that basic and trig functions work properly. String expression
+     * is evaluated and if it equals the double result, then the test is successful.
+     *
+     * @param expression - String that contains the expression to be evaluated
+     * @param result - Double that contains the result that the expression must equal
+     */
     @ParameterizedTest
     @CsvSource({
             "2+3,5",
@@ -305,7 +312,7 @@ class ExpressionTests {
         assertEquals(result, Expression.evaluate(expression));
     }
 
-    @ParameterizedTest //more example test cases
+    @ParameterizedTest //more example test cases, this time for bitwise operators
     @CsvSource({
             "1<<4,16",
             "19>>2,4",
