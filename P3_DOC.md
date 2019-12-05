@@ -50,4 +50,4 @@ Note: It is recommended that the emulator or phone running the app be on Android
 
 * The unit converter will calulate all conversions for a given unit and amount.
 
-*In the programmer calculator, the user can perform operations like XOR, OR, AND, etc. on binary, hex, decimal, and octal numbers (even different types in the same expression, like 0xA<<0b11|0o44)
+* In the programmer calculator, the user can perform operations like XOR, OR, AND, etc. on binary, hex, decimal, and octal numbers (even different types in the same expression, like 0xA<<0b11|0o44)
