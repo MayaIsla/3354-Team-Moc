@@ -18,12 +18,12 @@ public class UnitStringTests {
     }
 
     /*
-        compares the friendly, human-readable string to the value that should be in the second
-        spinner
+        compares the friendly, human-readable mass and weight string to the value that should
+        be in the second spinner
         e.g. Unit.KILOGRAMS --> 'kilograms'
      */
     @Test
-    public void massWeightSpinnerTest()  {
+    public void massWeightSpinnerTests()  {
         assertEquals(Unit.KILOGRAMS.toString(), "kilograms");
         assertEquals(Unit.GRAMS.toString(), "grams");
         assertEquals(Unit.MILLIGRAMS.toString(), "milligrams");
@@ -31,6 +31,18 @@ public class UnitStringTests {
         assertEquals(Unit.OUNCES.toString(), "ounces");
         assertEquals(Unit.POUNDS.toString(), "pounds");
         assertEquals(Unit.TONS.toString(), "tons");
+    }
+    
+    /*
+        compares the friendly, human-readable temperature string to the value that should
+        be in the second spinner
+        e.g. Unit.KELVIN --> 'Kelvin'
+     */
+    @Test
+    public void temperatureSpinnerTests()  {
+        assertEquals(Unit.KELVIN.toString(), "Kelvin");
+        assertEquals(Unit.FAHRENHEIT.toString(), "Fahrenheit");
+        assertEquals(Unit.CELSIUS.toString(), "Celsius");
     }
     
     @After
