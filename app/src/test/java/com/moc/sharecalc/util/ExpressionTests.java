@@ -49,6 +49,14 @@ class ExpressionTests {
         assertEquals(expectedOutput, Expression.makeMultiplicationExplicit(input));
     }
 
+    /**
+     * Unit test for changing a subtraction to an addition with negative numbers. Compares the output of two
+     * expressions, one with normal subtraction, and the other using addition of negative numbers. If the two
+     * outputs are equal, then the test is successful.
+     *
+     * @param input - String that contains the input expression
+     * @param expectedOutput - String that contains the expected output
+     */
     @ParameterizedTest
     @CsvSource({
             "5-3,5+-3",
@@ -186,7 +194,7 @@ class ExpressionTests {
         }
 
         @Test
-        void basicExpressionTest2() {
+        void basicExpressionTest2() { //More basic expression tests to get tokens from strings
             Iterator<Token> it = Expression.getTokensFromString("9^2+cos(3/2)").iterator();
             assertEquals(it.next().getOperand(), 9);
             assertEquals(it.next().getOperator(), BinaryOperator.EXPONENTIATE);
@@ -256,6 +264,14 @@ class ExpressionTests {
             assertThrows(IllegalArgumentException.class, () -> UnaryOperator.FACTORIAL.operate(input));
         }
 
+        /**
+         * Unit test for factorials in an expression. Takes the expression and asserts that the factorial is evaluated
+         * at it's proper priority (i.e. PEMDAS). If the output of the expression is equal to result, the test is
+         * successful.
+         *
+         * @param expression - String that contains the expression to be tested
+         * @param result - Double that contains the result to which the expression will be compared
+         */
         @ParameterizedTest
         @CsvSource({
                 "0!,1",
