@@ -12,16 +12,27 @@
 
 ## 2. Test classes
 
-### A. ExpressionTests class (com.moc.sharecalc.util)
-This test class tests the Expression.evaluate() method as well as its many helper functions (e.g. preprocessors, top-down parser, etc.) **50 test cases by Jonathan, 3 test cases by Alex.**
+### 2.1. com.moc.sharecalc.util.ExpressionTests 
+This test class (and its two nested test classes, bolded below) tests the Expression.evaluate() method as well as its many helper functions (e.g. preprocessors, top-down parser, etc.) **50 test cases by Jonathan, 3 test cases by Alex.**
 * makeNegationExplicitTest - tests Expression.makeNegationExplicit (2 tests by Jonathan)
 * makeMultiplicationExplicit - tests Expression.makeMultiplicationExplicit (4 tests by Jonathan)
 * makeSubtractionUseAddition - tests Expression.makeSubtractionUseAddition (3 tests by Jonathan)
 * preprocessExpression - tests Expression.preprocessExpression (3 tests by Jonathan)
-* GetTokenFromStringTests - nested test class to test Expression.getTokensFromString (12 tests by Jonathan)
-* FactorialTests - nested test class to test factorial operation in an expression (12 tests by Jonathan)
-* evaluationTests - test Expression.evaluate (8 tests by Jonathan, 3 tests by Alex)
-* bitwiseTests - test Expression.evaluate for bitwise operators (5 tests by Jonathan)
+* **GetTokenFromStringTests** - **nested test class** to test Expression.getTokensFromString (12 tests by Jonathan)
+* **FactorialTests** - **nested test class** to test factorial operation in an expression (12 tests by Jonathan)
+* evaluationTests - tests Expression.evaluate (8 tests by Jonathan, 3 tests by Alex)
+* bitwiseTests - tests Expression.evaluate for bitwise operators (5 tests by Jonathan)
+
+### 2.2. com.moc.sharecalc.util.ExpressionInputUtilsTests
+This test class tests the ExpressionInputUtils methods. **28 tests by Jonathan**
+* regexValidatorTests - test ExpressionInputUtils.PATTERN_VALID_AT_CURSOR (8 tests by Jonathan)
+* moveCursorRight - test ExpressionInputUtils.moveCursorRight (10 tests by Jonathan)
+* moveCursorLeft - test ExpressionInputUtils.moveCursorLeft (10 tests by Jonathan)
+
+### 2.3. com.moc.sharecalc.unitutil.UnitConversionTests
+This test class tests Unit.convert with the various unit categories.
+**15 tests by Jonathan, 2 tests by Maya, 16 tests by Alexis Z.
+
   
 
 ## 3. Build instructions & functionalities
