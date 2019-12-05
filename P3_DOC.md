@@ -36,3 +36,10 @@ This test class tests Unit.convert with the various unit categories.
   
 
 ## 3. Build instructions & functionalities
+In unit testing in debugging, UI functions are inaccessible in smaller resolutions. Using bigger resolution screens such as the Pixel 2 will work. 
+
+*Using scientific calculator, the user will be able to slide the functions such as SIN, LOG and COS. While getting an immediate value as the characters are chosen while it's parsing. 
+
+*Unit converter functions where a specific conversion is chosen and will give all converting functions for the following numbers.
+
+*The programmer calculator is a build where the user can convert HEX, BIN, and OCT values while also giving immediate answers to XOR, AND and OR values. Same slider build UI is implemented in this calculator. 
