@@ -45,6 +45,29 @@ public class UnitStringTests {
         assertEquals(Unit.CELSIUS.toString(), "Celsius");
     }
     
+    /*
+        compares the friendly, human-readable length string to the value that should
+        be in the second spinner
+        e.g. Unit.METERS --> 'meters'
+     */
+    @Test void lengthSpinnerTests()  {
+        assertEquals(Unit.METERS.toString(), "meters");
+        assertEquals(Unit.MICROMETERS.toString(), "micrometers");
+        assertEquals(Unit.MILLIMETERS.toString(), "millimeters");
+        assertEquals(Unit.CENTIMETERS.toString(), "centimeters");
+        assertEquals(Unit.DECIMETERS.toString(), "decimeters");
+        assertEquals(Unit.DECAMETERS.toString(), "decameters");
+        assertEquals(Unit.KILOMETERS.toString(), "kilometers");
+        assertEquals(Unit.INCHES.toString(), "inches");
+        assertEquals(Unit.FEET.toString(), "feet");
+        assertEquals(Unit.YARDS.toString(), "yards");
+        assertEquals(Unit.MILES.toString(), "miles");
+        assertEquals(Unit.LIGHTSECONDS.toString(), "lightseconds");
+        assertEquals(Unit.LIGHTMINUTES.toString(), "lightminutes");
+        assertEquals(Unit.LIGHTMONTHS.toString(), "lightmonths");
+        assertEquals(Unit.LIGHTYEARS.toString(), "lightyears");
+    }
+    
     @After
     public void tearDown() throws Exception {
 
