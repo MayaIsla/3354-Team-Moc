@@ -163,6 +163,23 @@ class ExpressionTests {
             assertFalse(it.hasNext());
         }
 
+        @Test
+        void basicExpressionTest2() {
+            Iterator<Token> it = Expression.getTokensFromString("9^2+cos(3/2)").iterator();
+            assertEquals(it.next().getOperand(), 9);
+            assertEquals(it.next().getOperator(), BinaryOperator.EXPONENTIATE);
+            assertEquals(it.next().getOperand(), 2);
+            assertEquals(it.next().getOperator(), BinaryOperator.ADD);
+            assertEquals(it.next().getOperator(), UnaryOperator.COS);
+            assertEquals(it.next().getOperator(), NullaryOperator.L_PAREN);
+            assertEquals(it.next().getOperand(), 3);
+            assertEquals(it.next().getOperator(), BinaryOperator.DIVIDE);
+            assertEquals(it.next().getOperand(), 2);
+            assertEquals(it.next().getOperator(), NullaryOperator.R_PAREN);
+            assertEquals(it.next().getOperator(), NullaryOperator.TERMINATOR);
+            assertFalse(it.hasNext());
+        }
+
 
         @Test
         void advancedExpressionTest() {
