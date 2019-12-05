@@ -12,14 +12,6 @@ import static org.junit.Assert.*;
  */
 public class UnitStringTests {
 
-    private String kilogramsString;
-    private String gramsString;
-    private String milligramsString;
-    private String centigramsString;
-    private String ouncesString;
-    private String poundsString;
-    private String tonsString;
-
     @Before
     public void setUp() throws Exception {
 
