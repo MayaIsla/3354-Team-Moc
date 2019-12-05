@@ -68,6 +68,24 @@ public class UnitStringTests {
         assertEquals(Unit.LIGHTYEARS.toString(), "lightyears");
     }
     
+    /*
+        compares the friendly, human-readable volume string to the value that should
+        be in the second spinner
+        e.g. Unit.LITERS --> 'liters'
+     */
+    @Test
+    public void volumeSpinnerTests()  {
+        assertEquals(Unit.LITERS.toString(), "liters");
+        assertEquals(Unit.MILLILITERS.toString(), "milliliters");
+        assertEquals(Unit.TEASPOONS.toString(), "teaspoons");
+        assertEquals(Unit.TABLESPOONS.toString(), "tablespoons");
+        assertEquals(Unit.FL_OZ.toString(), "fl oz");
+        assertEquals(Unit.CUPS.toString(), "cups");
+        assertEquals(Unit.PINTS.toString(), "pints");
+        assertEquals(Unit.QUARTS.toString(), "quarts");
+        assertEquals(Unit.GALLONS.toString(), "gallons");
+    }
+    
     @After
     public void tearDown() throws Exception {
 
