@@ -1,7 +1,6 @@
 # ShareCalc
 
 [![Build Status](https://img.shields.io/github/stars/MayaIsla/3354-Team-Moc.svg)](https://github.com/MayaIsla/3354-Team-Moc)
-[![Activity](https://img.shields.io/tokei/lines/github/MayaIsla/3354-Team-Moc.svg)](https://github.com/MayaIsla/3354-Team-Moc/graphs/contributors)
 [![Activity](https://img.shields.io/github/last-commit/MayaIsla/3354-Team-Moc.svg)](https://github.com/MayaIsla/3354-Team-Moc/commits)
 
 ShareCalc is a scientific, programmer, and unit conversion calulator for Android with the ability to easily share calculations with others.
